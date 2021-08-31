@@ -1,0 +1,95 @@
+#include <string>
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
+string const HEADER = "Jeff Caldwell - CS 2336 - Lab 01";
+
+uint numberInput;
+int steps;
+int prodSteps;
+
+void productOfDigits(uint n);
+
+void getSteps(uint n); 
+
+
+int main () {
+cout << "\n" << HEADER << "\n" << endl;
+
+while(cin >> numberInput) {
+
+  steps = 0; 															// reinitialize steps to 0 on each new input
+  
+	productOfDigits(numberInput);
+}
+
+cout << endl;
+}
+
+
+void productOfDigits(uint n) {
+
+	uint digit, product;
+
+	product = 1; 														// initialize product to 1 so it can
+																					// multiply into any digit
+
+	cout << n << " -> "; 										// initial output
+
+	do {
+		digit = n % 10; 											// get the last digit
+		
+		product *= digit; 										// multiply that digit into the product
+		
+		n = n / 10; 													// remove that last digit from the original number
+	} while(n != 0);
+
+	steps++; 																// increment globally defined steps 
+
+	if((product / 10) != 0) {   						// recurse if the number of digits
+		productOfDigits(product); 						// is greater than 1
+	} else {
+		cout << product << " persistence = " << steps << endl; // end of output
+	}
+}
+
+
+
+/*
+ * This is an alternate implementation that uses
+ * type casting to convert the given uint
+ * to a string. It then relies on the length of
+ * that string to choose whether to recurse
+ * 
+ * It works, but I'm unsure about how robust it
+ * is due to its reliance on ascii-based character numbers
+ */
+void getSteps(uint n) {
+
+  string nStr = to_string(n);								// to get each digit, first convert n to string
+
+  int product = 1;													// initialize product to 1 so it will always multiply
+
+  cout << n << " -> ";											// since we're using recursion, we can start by
+																						// presenting the user with the value of `n`
+																						// if we don't recurse, this won't display, thus
+																						// ending the output for the given input uint
+
+  if(nStr.size() == 1) {										// we have reached the end of the factors
+																						// and can now display the number of steps!
+
+    cout << "persistence = " << steps << endl;
+  } else {
+
+    steps++;																// if we're at this point, it means we took a step
+
+		
+    for(char c : nStr) {										// so we need to iterate through the characters
+      product *= (c - 48);									// of the converted uint and multiply them into
+    }																				// the product
+
+      getSteps(product);										// then, we call this function with the new
+  }																					// product value as input
+}
