@@ -41,7 +41,7 @@ Rational Rational::multiply(const Rational& multiplicand) const {
 }
 
 Rational Rational::multiplicativeInverse() const {
-    return Rational();
+    return Rational(this->getDenominator(), this->getNumerator());
 }
 
 Rational Rational::divide(const Rational& divisor) const {
