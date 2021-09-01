@@ -45,7 +45,7 @@ Rational Rational::multiplicativeInverse() const {
 }
 
 Rational Rational::divide(const Rational& divisor) const {
-    return Rational();
+    return this->multiply(divisor.multiplicativeInverse());
 }
 
 ostream& Rational::print(ostream& os) const {
