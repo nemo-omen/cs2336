@@ -30,7 +30,14 @@ Rational Rational::subtract(const Rational& subtrahend) const {
 }
 
 Rational Rational::multiply(const Rational& multiplicand) const {
-    return Rational();
+  Rational product;
+
+  product.setNumerator(this->getNumerator() * multiplicand.getNumerator());
+  product.setDenominator(this->getDenominator() * multiplicand.getDenominator());
+
+  product.reduce();
+
+  return product;
 }
 
 Rational Rational::multiplicativeInverse() const {
