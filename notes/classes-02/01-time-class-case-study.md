@@ -122,3 +122,28 @@ int main() {
   cout << endl;
 }
 ```
+
+### Dr. Motl's Examples
+
+Below, `sunset` is an object. `&dinnerTime` references that object, so essentially, they're both names for the same object.
+
+`*timePtr` and `*timePtr2` both point to the same space in memory -- the space allocated for the object instantiated with `sunset` and referenced by `&dinnerTime`.
+```cpp
+Time sunset;
+Time &dinnerTime = sunset; // reference to `sunset`
+Time *timePtr = &dinnerTime; // points to same place in memory as `&dinnerTime`
+Time *timePtr2 = sunset; // points to sunset
+```
+
+`->` __indirection/selection operator__
+
+`*` __dereferencing operator__
+
+- selection operator takes precedence over the dereference operator, so you have to use perentheses.
+```cpp
+sunset.setTime(20, 31, 0);
+dinnerTime.setTime(20, 31, 0);
+timePtr->setTime(20, 31, 0);    // needs to be dereferenced/indericted
+(*timePtr).setTime(20, 31, 0);  // can use the `*`, or dereference operator
+                                // but don't forget (parentheses!)
+```
