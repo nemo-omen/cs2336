@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../cs3311"
+		},
+		{
+			"name": "SSH FS - csunix",
+			"uri": "ssh://csunix/home/jcaldwell2"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"*.svx": "markdown",
+			"*.html": "html",
+			"iostream": "cpp",
+			"lab04main.C": "cpp"
+		},
+		"files.watcherExclude": {
+			"**/target": true
+		}
+	}
+}
