@@ -16,6 +16,13 @@ IntegerSet::IntegerSet() {
 
 IntegerSet::IntegerSet(const IntegerSet& otherSet) {
   allocateStorage();
+  for(uint e = 0; e < N; ++e) {
+    if(otherSet.isMember(e)) {
+      insertElement(e); // insertElement if it is a member of otherSet
+    } else {
+      deleteElement(e); // otherwise, delete
+    }
+  }
 }
 
 IntegerSet::~IntegerSet() {
@@ -36,7 +43,13 @@ bool IntegerSet::isMember(uint e) const {
 }
 
 uint IntegerSet::cardinality() const {
-  return 0;
+  int count = 0;
+  for(uint e = 0; e < N; ++e) {
+    if(isMember(e)) {
+      count ++;
+    }
+  }
+  return count;
 }
 
 void IntegerSet::insertElement(uint e) {
@@ -54,18 +67,52 @@ void IntegerSet::deleteElement(uint e) {
     uint myWord = bitVector[word(e)];
     int n = bit(e);
 
-    bitVector[word(e)] = bit(myWord, n, 0);
+    myWord = setBit(myWord, n, 0);
+    bitVector[word(e)] = myWord;
   }
 }
 
-IntegerSet IntegerSet::compliment() const {
-  return IntegerSet();
+IntegerSet IntegerSet::complement() const {
+  IntegerSet comp;
+  //manipulate the local object
+  // create the opposite -- ie, if
+  // e is not a member, insert it
+  // else delete it
+  for(uint e = 0; e < N; ++e) {
+    if(!isMember(e)) {
+      comp.insertElement(e);
+    } else {
+      comp.deleteElement(e);
+    }
+  }
+  return comp;
 }
 
 ostream& IntegerSet::print(ostream& os) const {
-  cout << "Blahblah" << endl;
+  if(cardinality() > 0) {
+    os << "{";
+    for(uint e = 0; e < N; ++e) {
+      if(isMember(e)) {
+        if(e != N - 1) {
+          os << e << ",";
+        } else {
+          os << e;
+        }
+      }
+    }
+    os << "}" << endl;
+  } else {
+    os << static_cast<char>(216) << endl;
+  }
+  return os;
 }
 
 bool IntegerSet::isValid(uint e) const {
-  return true;
+  bool isValid;
+  if(0 <= e && e < N) {
+    isValid = true;
+  } else {
+    isValid = false;
+  }
+  return isValid;
 }
