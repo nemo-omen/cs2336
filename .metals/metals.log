@@ -6,3 +6,4 @@ Sep 05, 2021 7:46:17 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notif
 INFO: Unsupported notification method: $/setTrace
 Sep 05, 2021 7:46:17 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
 INFO: Unsupported notification method: $/setTrace
+[0m2021.09.06 15:38:46 INFO  shutting down Metals[0m

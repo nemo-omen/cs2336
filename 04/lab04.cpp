@@ -63,7 +63,7 @@ void IntegerSet::insertElement(uint e) {
 }
 
 void IntegerSet::deleteElement(uint e) {
-  if(isValid(e) && !isMember(e)) {
+  if(isValid(e) && isMember(e)) {
     uint myWord = bitVector[word(e)];
     int n = bit(e);
 
@@ -72,17 +72,15 @@ void IntegerSet::deleteElement(uint e) {
   }
 }
 
+
 IntegerSet IntegerSet::complement() const {
   IntegerSet comp;
-  //manipulate the local object
-  // create the opposite -- ie, if
-  // e is not a member, insert it
-  // else delete it
+  
   for(uint e = 0; e < N; ++e) {
     if(!isMember(e)) {
-      comp.insertElement(e);
+      comp.insertElement(e);      // if e is not a member, insert e
     } else {
-      comp.deleteElement(e);
+      comp.deleteElement(e);      // otherwise, delete e
     }
   }
   return comp;
@@ -90,17 +88,20 @@ IntegerSet IntegerSet::complement() const {
 
 ostream& IntegerSet::print(ostream& os) const {
   if(cardinality() > 0) {
-    os << "{";
+    uint count = 0;                 // keep track of the number of elements
+    os << "{";                      // open with a left brace
     for(uint e = 0; e < N; ++e) {
       if(isMember(e)) {
-        if(e != N - 1) {
-          os << e << ",";
+        count ++;                   // increase count on element discovery
+        if(count < cardinality()) {
+          os << e << ",";           // if less than cardinality. print e with a comma
         } else {
-          os << e;
+          os << e;                  // else just print e
         }
       }
     }
-    os << "}" << endl;
+
+    os << "}" << endl;              // wrap it up with a closing brace
   } else {
     os << static_cast<char>(216) << endl;
   }
@@ -108,11 +109,5 @@ ostream& IntegerSet::print(ostream& os) const {
 }
 
 bool IntegerSet::isValid(uint e) const {
-  bool isValid;
-  if(0 <= e && e < N) {
-    isValid = true;
-  } else {
-    isValid = false;
-  }
-  return isValid;
+  return (0 <= e && e < N);         // Dr. Motl's handy formula
 }
