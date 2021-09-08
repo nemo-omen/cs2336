@@ -9,6 +9,9 @@
 		{
 			"name": "SSH FS - csunix",
 			"uri": "ssh://csunix/home/jcaldwell2"
+		},
+		{
+			"path": "../cs1351"
 		}
 	],
 	"settings": {
