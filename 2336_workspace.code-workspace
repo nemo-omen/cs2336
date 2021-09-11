@@ -9,6 +9,9 @@
 		{
 			"name": "SSH FS - csunix",
 			"uri": "ssh://csunix/home/jcaldwell2"
+		},
+		{
+			"path": "../cs1351"
 		}
 	],
 	"settings": {
@@ -16,7 +19,8 @@
 			"*.svx": "markdown",
 			"*.html": "html",
 			"iostream": "cpp",
-			"lab04main.C": "cpp"
+			"lab04main.C": "cpp",
+			"lab03main.C": "cpp"
 		},
 		"files.watcherExclude": {
 			"**/target": true
