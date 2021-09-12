@@ -44,12 +44,12 @@ IntegerSet IntegerSet::symmetricDifference(const IntegerSet& otherSet) const {
   IntegerSet symmetricDifferenceSet;
   IntegerSet tempIntersection = intersection(otherSet);
   for(uint e = 0; e < N; ++e) {
-    if(isMember(e) || otherSet.isMember(e)) {
-      if(!(isMember(e) && otherSet.isMember(e))) {
+    if(!tempIntersection.isMember(e)) {
+      if(isMember(e) || otherSet.isMember(e)) {
         symmetricDifferenceSet.insertElement(e);
+      } else {
+        symmetricDifferenceSet.deleteElement(e);
       }
-    } else {
-      symmetricDifferenceSet.deleteElement(e);
     }
   }
   return symmetricDifferenceSet;
