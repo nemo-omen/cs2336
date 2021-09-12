@@ -1,17 +1,24 @@
 {
 	"folders": [
 		{
+			"name": "2336",
 			"path": "."
-		},
-		{
-			"path": "../cs3311"
 		},
 		{
 			"name": "SSH FS - csunix",
 			"uri": "ssh://csunix/home/jcaldwell2"
 		},
 		{
-			"path": "../cs1351"
+			"name": "pancake-charts",
+			"path": "../../dev/learning/pancake-charts"
+		},
+		{
+			"name": "3311",
+			"path": "../3311"
+		},
+		{
+			"name": "1351",
+			"path": "../1351"
 		}
 	],
 	"settings": {
