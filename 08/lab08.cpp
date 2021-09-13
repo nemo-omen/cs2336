@@ -7,32 +7,25 @@
 //overloaded output operator for printing IntegerSet set to
 //output stream out
 ostream& operator<<(ostream& out, const IntegerSet& set) {
-    if (set.cardinality() == 0)
-    {
-        out << static_cast<char>(216) << endl;
-    }
-    else
-    {
-        out << '{';
-        
-        uint count = 1;
-        for (uint e = 0; e < N; ++e)
-        { 
-            if (set.isMember(e))
-            {
-                if(count < set.cardinality())
-                {    out << e << ",";
-                    count++;
-                }
-                else
-                    out << e;
-            }
-            
+    if(set.cardinality() > 0) {
+    uint count = 0;                  
+    out << "{";                      
+    for(uint e = 0; e < N; ++e) {
+      if(set.isMember(e)) {
+        count ++;                    
+        if(count < set.cardinality()) {
+          out << e << ",";          
+        } else {
+          out << e;                 
         }
-        
-        out << '}' << endl;
+      }
     }
-    return out;
+
+    out << "}" << endl;             
+  } else {
+    out << static_cast<char>(216) << endl;
+  }
+  return out;
 }
 
 // if e is valid and not a member of the set, insert e into set
@@ -40,8 +33,7 @@ ostream& operator<<(ostream& out, const IntegerSet& set) {
 IntegerSet IntegerSet::operator+(uint e) const {
     IntegerSet mySet(*this); 
     
-    if (isValid(e) && !isMember(e))
-    {
+    if (isValid(e) && !isMember(e)){
         uint myWord = bitVector[word(e)];
         int n = bit(e);
         
@@ -55,13 +47,16 @@ IntegerSet IntegerSet::operator+(uint e) const {
 // if e is valid and a member of the set, delete e from set
 // this is the same as deleteElement()
 IntegerSet IntegerSet::operator-(uint e) const {
+  IntegerSet set(*this);
+
   if(isValid(e) && isMember(e)) {
     uint myWord = bitVector[word(e)];
     int n = bit(e);
 
     myWord = setBit(myWord, n, 0);
-    bitVector[word(e)] = myWord;
+    set.bitVector[word(e)] = myWord;
   }
+  return set;
 }
 
 // complement of a Set
@@ -70,9 +65,9 @@ IntegerSet IntegerSet::operator-() const {
   
   for(uint e = 0; e < N; ++e) {
     if(!isMember(e)) {
-      comp.insertElement(e);
+      comp = comp + e;
     } else {
-      comp.deleteElement(e);
+      comp = comp - e;
     }
   }
   return comp;
@@ -80,20 +75,21 @@ IntegerSet IntegerSet::operator-() const {
 
 // *this = rhs
 IntegerSet& IntegerSet::operator=(const IntegerSet& rhs) {
-    if  (this != &rhs)
-    {
-        for (uint e = 0; e < N; ++e)
-        {
-            if (rhs.isMember(e))
-            {
-                *this = *this + e;
-            }
-            else
-            {
-                *this = *this - e;
-            }
+      for (uint e = 0; e < N; ++e){
+        if (rhs.isMember(e)){
+          uint myWord = bitVector[word(e)];
+          int n = bit(e);
+          
+          myWord = setBit(myWord, n, 1);
+          bitVector[word(e)] = myWord;
         }
-    }
-    
+        else{
+          uint myWord = bitVector[word(e)];
+          int n = bit(e);
+          
+          myWord = setBit(myWord, n, 0);
+          bitVector[word(e)] = myWord;
+        }
+      }
     return *this;
 }
