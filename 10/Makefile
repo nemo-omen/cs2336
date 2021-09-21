@@ -40,7 +40,7 @@ targets2srcfiles =
 $(targets2srcfiles): $$@main.o $$@.o
 	$(CC) -o $@ $@main.o $@.o $(LINK_DIRS) $(LFLAGS)
 
-targets2srcfileswithlibrary =  lab09
+targets2srcfileswithlibrary =  lab10
 
 $(targets2srcfileswithlibrary): $$@main.o $$@.o
 	$(CC) -o $@ $@main.o $@.o $(LINK_DIRS) \

@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>testNotes.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* a11y-light theme */
+/* Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css */
+/* @author: ericwbailey */
+
+/* Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #696969;
+}
+
+/* Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+  color: #d91e18;
+}
+
+/* Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+  color: #aa5d00;
+}
+
+/* Yellow */
+.hljs-attribute {
+  color: #aa5d00;
+}
+
+/* Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #008000;
+}
+
+/* Blue */
+.hljs-title,
+.hljs-section {
+  color: #007faa;
+}
+
+/* Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #7928a1;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: #fefefe;
+  color: #545454;
+  padding: 0.5em;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+@media screen and (-ms-high-contrast: active) {
+  .hljs-addition,
+  .hljs-attribute,
+  .hljs-built_in,
+  .hljs-builtin-name,
+  .hljs-bullet,
+  .hljs-comment,
+  .hljs-link,
+  .hljs-literal,
+  .hljs-meta,
+  .hljs-number,
+  .hljs-params,
+  .hljs-string,
+  .hljs-symbol,
+  .hljs-type,
+  .hljs-quote {
+        color: highlight;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag {
+        font-weight: bold;
+    }
+}
+
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<style>
+  .row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0.25rem;
+  }
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  pre {
+    margin: 0;
+  }
+</style>
+<div class="row">
+<div class="col">
+<pre class="hljs"><code><div><span class="hljs-comment">// __class declaration/definition__</span>
+<span class="hljs-comment">// (think Java interface)</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rectangle</span> {</span>
+  <span class="hljs-comment">// access specifier</span>
+  <span class="hljs-comment">// can be set in any order</span>
+  <span class="hljs-comment">// if not specified</span>
+  <span class="hljs-comment">// default is `private`</span>
+  <span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">double</span> width; 
+    <span class="hljs-keyword">double</span> length;
+  <span class="hljs-keyword">public</span>:
+    <span class="hljs-comment">// set Functions (accessors)</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setWidth</span><span class="hljs-params">(<span class="hljs-keyword">double</span> width)</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setLength</span><span class="hljs-params">(<span class="hljs-keyword">double</span> length)</span></span>;
+    <span class="hljs-comment">// get Functions (mutators)</span>
+    <span class="hljs-comment">// const specifies fn will not</span>
+    <span class="hljs-comment">// change data in calling obj</span>
+    <span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">getWidth</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">getLength</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">getArea</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span></span>;      
+}
+
+</div></code></pre>
+<pre class="hljs"><code><div>  <span class="hljs-comment">// __implementation__</span>
+  <span class="hljs-comment">// `::` = "scope resolution operator"</span>
+  <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Rectangle::setWidth</span><span class="hljs-params">(<span class="hljs-keyword">double</span> w)</span> </span>{
+    width = w;
+  }
+</div></code></pre>
+<pre class="hljs"><code><div>  <span class="hljs-comment">// __instantiation/instance definition__</span>
+  Rectangle box;
+  <span class="hljs-keyword">double</span> rectWidth = <span class="hljs-number">10.0</span>;
+  <span class="hljs-keyword">double</span> rectLength = <span class="hljs-number">20.0</span>;
+  box.setWidth(rectWidth);
+  box.setLength(rectLength);
+</div></code></pre>
+<pre class="hljs"><code><div>  <span class="hljs-comment">// Define Rectangle pointer</span>
+  Rectangle *rectPtr = <span class="hljs-literal">nullptr</span>;
+  <span class="hljs-comment">// dynamically allocate Rect obj</span>
+  rectPtr = <span class="hljs-keyword">new</span> Rectangle;
+  rectPtr-&gt;setWidth(<span class="hljs-number">10.0</span>);
+  rectPtr-&gt;setLength(<span class="hljs-number">20.0</span>);
+  <span class="hljs-comment">// delete obj from mmry</span>
+  <span class="hljs-keyword">delete</span> rectPtr;
+  rectPtr = <span class="hljs-literal">nullptr</span>;
+</div></code></pre>
+<pre class="hljs"><code><div>    <span class="hljs-meta">#<span class="hljs-meta-keyword">ifndef</span> RECTANGLE_H</span>
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> RECTANGLE_H</span>
+    <span class="hljs-comment">// inline member functions</span>
+    <span class="hljs-comment">// def. in class declatration</span>
+    <span class="hljs-comment">// good for short fn bodies</span>
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rectangle</span> {</span>
+      <span class="hljs-keyword">private</span>:
+        <span class="hljs-keyword">double</span> width;
+      <span class="hljs-keyword">public</span>:
+        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setWidth</span><span class="hljs-params">(<span class="hljs-keyword">double</span>)</span></span>;
+        <span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">getWidth</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>{
+          <span class="hljs-keyword">return</span> width;
+        }
+    }
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+    <span class="hljs-comment">// - reg fns: compiler stores return address of call, allocates memory for local vars etc. </span>
+    <span class="hljs-comment">// - inline fns: code is copied into prog. in place of call - larger exe, faster execution</span>
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// __Constructors__</span>
+<span class="hljs-comment">// - memb fn automatically called when obj created</span>
+<span class="hljs-comment">// - purpose to construct obj</span>
+<span class="hljs-comment">// - fn name = class name</span>
+<span class="hljs-comment">// - no return type</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rectangle</span> {</span>
+  <span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">double</span> width;
+  <span class="hljs-keyword">public</span>:
+    <span class="hljs-comment">// default constructor</span>
+    Rectangle();
+}
+<span class="hljs-comment">// implementing default constructor</span>
+Rectangle::Rectangle() {
+  width = <span class="hljs-number">0.0</span>;
+  height = <span class="hljs-number">0.0</span>
+}
+<span class="hljs-keyword">void</span> Rectangle::SetWidth(<span class="hljs-keyword">double</span> w) {
+  <span class="hljs-keyword">if</span>(w &gt; <span class="hljs-number">0</span>)
+    width = w;
+  <span class="hljs-keyword">else</span> {
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Invalid width \n"</span>;
+    <span class="hljs-built_in">exit</span>(EXIT_FAILURE);
+  }
+}
+<span class="hljs-comment">// calling default constructor</span>
+Rectangle rect;
+</div></code></pre>
+</div>
+<div class="col">
+<pre class="hljs"><code><div><span class="hljs-comment">// __constructor default args__</span>
+<span class="hljs-comment">// prototype</span>
+Rectangle(<span class="hljs-keyword">double</span>, <span class="hljs-keyword">double</span>);
+<span class="hljs-comment">// definition/implementation</span>
+Rectangle::Rectangle(<span class="hljs-keyword">double</span> w, <span class="hljs-keyword">double</span> len) {
+  width = w;
+  len = len;
+}
+<span class="hljs-comment">// calling</span>
+<span class="hljs-function">Rectangle <span class="hljs-title">rect</span><span class="hljs-params">(<span class="hljs-number">10</span>, <span class="hljs-number">5</span>)</span></span>;
+<span class="hljs-comment">// if all constructor's params have</span>
+<span class="hljs-comment">// default args it is default constructor</span>
+Rectangle(<span class="hljs-keyword">double</span> = <span class="hljs-number">0</span>, <span class="hljs-keyword">double</span> = <span class="hljs-number">0</span>);
+<span class="hljs-comment">// will return a rectangle of {0,0}</span>
+Rectangle r;
+<span class="hljs-comment">// when all constructors require args</span>
+<span class="hljs-comment">// class has no default constructor</span>
+<span class="hljs-comment">// no args == error!</span>
+<span class="hljs-comment">// don't provide more than one default constructor!</span>
+<span class="hljs-comment">// won't compile!</span>
+Square();
+Square(<span class="hljs-keyword">int</span> = <span class="hljs-number">0</span>);
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// __destructors__</span>
+<span class="hljs-comment">// - memb fn auto called when obj destroyed</span>
+<span class="hljs-comment">// name = ~classname</span>
+<span class="hljs-comment">// no return type, no args</span>
+<span class="hljs-comment">// cannot be overloaded (1 per class)</span>
+<span class="hljs-comment">// if constr. alloc. dynamic mem. destruct. should release</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">InventoryItem</span>{</span>
+  <span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">char</span> *description;
+  InventoryItem(<span class="hljs-keyword">char</span> *desc) {
+    <span class="hljs-comment">// allocate just enough mem for description</span>
+    description = <span class="hljs-keyword">new</span> <span class="hljs-keyword">char</span>[<span class="hljs-built_in">strlen</span>(desc) + <span class="hljs-number">1</span>];
+    <span class="hljs-comment">// copy desc into mem</span>
+    strcopy(description, desc);
+    <span class="hljs-comment">// destructor</span>
+    ~InventoryItem() {
+      <span class="hljs-keyword">delete</span> [] description;
+    }
+    <span class="hljs-comment">// getter</span>
+    <span class="hljs-function"><span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *<span class="hljs-title">getDescrition</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>{
+      <span class="hljs-keyword">return</span> description;
+    }
+  }
+}
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// __dynamically alloc. objs__</span>
+<span class="hljs-comment">// - when obj is dyn. alloc. with the `new` operator, its constructor executes</span>
+Rectangle *r = <span class="hljs-keyword">new</span> Rectangle(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>);
+<span class="hljs-comment">// - when destroyed, destructor executes</span>
+<span class="hljs-keyword">delete</span> r;
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// __private member fns__</span>
+<span class="hljs-comment">// can only be called by another memb.fn</span>
+<span class="hljs-comment">// used 4 internal processing by class, not outside class</span>
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// __instance and static members__</span>
+<span class="hljs-comment">// instance var: memb var in a class. Each has own copy.</span>
+<span class="hljs-comment">// static var: one var shared among all objs of class</span>
+<span class="hljs-comment">// static memb fn: can be used to access static memb var</span>
+<span class="hljs-comment">// can be called before any objs dfn</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Tree</span> {</span>
+  <span class="hljs-keyword">private</span>:
+    <span class="hljs-comment">// declaration in class</span>
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> objectCount;
+  <span class="hljs-keyword">public</span>:
+    Tree() {
+      objectCount++;
+    }
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getObjectCount</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>{
+      <span class="hljs-keyword">return</span> objectCount;
+    }
+};
+<span class="hljs-comment">// definition of static memb var (outside class)</span>
+<span class="hljs-keyword">int</span> Tree::objectCount = <span class="hljs-number">0</span>;
+<span class="hljs-comment">// `main fn`</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span> <span class="hljs-params">()</span> </span>{
+  Tree oak;
+  Tree elm;
+  Tree pine;
+  <span class="hljs-built_in">cout</span> &lt;&lt; pine.getObjectCount; <span class="hljs-comment">// 3</span>
+}
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// __static memb fn__</span>
+<span class="hljs-comment">// declared with static before rtrn type</span>
+<span class="hljs-comment">// can only access static memb data</span>
+<span class="hljs-comment">// can be called independent of objs</span>
+</div></code></pre>
+</div>
+<div class="col">
+<pre class="hljs"><code><div><span class="hljs-comment">// __friends of classes__</span>
+<span class="hljs-comment">// - a fn or class that is not a memb of a </span>
+<span class="hljs-comment">//   class, but has access to private membs</span>
+<span class="hljs-comment">//   of the class</span>
+<span class="hljs-comment">// - can be stand-alone fn or memb of other class</span>
+<span class="hljs-comment">// - declared with `friend` keyword in proto.</span>
+<span class="hljs-function"><span class="hljs-keyword">friend</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setAVal</span><span class="hljs-params">(intVal&amp;, <span class="hljs-keyword">int</span>)</span></span>; <span class="hljs-comment">// stand-alone</span>
+<span class="hljs-function"><span class="hljs-keyword">friend</span> <span class="hljs-keyword">void</span> <span class="hljs-title">SomeClass::setNum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num)</span></span>; <span class="hljs-comment">// memb fn</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FriendClass</span> {</span>
+  <span class="hljs-comment">// will be friend</span>
+};
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OtherClass</span> {</span>
+  <span class="hljs-keyword">public</span>: <span class="hljs-comment">// declare entire FriendClass</span>
+    <span class="hljs-keyword">friend</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FriendClass</span>;</span>
+    <span class="hljs-comment">// as class of this class</span>
+};
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// __memberwise assignment__</span>
+<span class="hljs-comment">// can use `=` to assign one obj to another</span>
+<span class="hljs-comment">// or to init an obj w/an obj's data</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+  <span class="hljs-function">Rectangle <span class="hljs-title">box1</span><span class="hljs-params">(<span class="hljs-number">10.0</span>, <span class="hljs-number">10.0</span>)</span></span>;
+  <span class="hljs-function">Rectangle <span class="hljs-title">box2</span><span class="hljs-params">(<span class="hljs-number">20.0</span>, <span class="hljs-number">20.0</span>)</span></span>;
+  box2 = box1;
+};
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// __copy constructors__</span>
+<span class="hljs-comment">// - special constr. used when a new obj is</span>
+<span class="hljs-comment">//   initialized to data of other obj of same class</span>
+<span class="hljs-comment">// - default copy constr. copies field-to-field</span>
+<span class="hljs-comment">// - default works fine in many cases</span>
+<span class="hljs-comment">// - default = problem when obj contains pointer</span>
+<span class="hljs-comment">//   - membs will point to same dyn. mem.</span>
+<span class="hljs-comment">//   - solve by defining own copy constr.</span>
+<span class="hljs-comment">//               - takes ref param to obj of class</span>
+SomeClass::SomeClass(<span class="hljs-keyword">const</span> SomeClass &amp;obj) {
+  value = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>;
+  *value = obj.value;
+}
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// - since copy constr. has ref. to obj copying from</span>
+<span class="hljs-comment">//   it can modify that obj</span>
+<span class="hljs-comment">// prevent this by making param `const`</span>
+SomeClass::SomeClass(<span class="hljs-keyword">const</span> SomeClass &amp;obj) {}
+<span class="hljs-comment">// definition</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StudentTestScores</span> {</span>
+  <span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">double</span> *testScores; <span class="hljs-comment">// points to arr. of scores</span>
+    <span class="hljs-keyword">int</span> numTestScores;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">createTestScoreArray</span><span class="hljs-params">(<span class="hljs-keyword">int</span> size)</span> </span>{
+      numTestScores = size;
+      testScores = <span class="hljs-keyword">new</span> <span class="hljs-keyword">double</span>[size];
+      <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; size; i++) {
+        testScores[i] = DEFAULT_SCORE;
+      }
+    }
+  <span class="hljs-keyword">public</span>:
+    StudentTestScores(<span class="hljs-keyword">int</span> numScores) {
+      createTestScoreArray(numScores);
+    }
+    <span class="hljs-comment">// copy constr. -&gt; uses `const` in param so not same mem.</span>
+    StudentTestScores(<span class="hljs-keyword">const</span> studentTestScores &amp;obj) {
+      numTestScores = obj.numTestScores;
+      testScores = <span class="hljs-keyword">new</span> <span class="hljs-keyword">double</span>[numTestScores]
+    }
+    <span class="hljs-comment">// destrctr.</span>
+    ~StudentTestScores() {
+      <span class="hljs-keyword">delete</span> [] testScores;
+    }
+};
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// __operator overloading__</span>
+<span class="hljs-comment">// - name of fn. overload = `operator` followed by the op.</span>
+<span class="hljs-comment">// - proto. goes in class declaration</span>
+<span class="hljs-comment">// - fn. def. goes w/other memb.fn.</span>
+    <span class="hljs-keyword">void</span>      <span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> SomeClass &amp;rhs);
+<span class="hljs-comment">// rtrn type  fn.name     param for obj on right</span>
+<span class="hljs-comment">// - can be invoked as memb.fn.</span>
+obj1.<span class="hljs-keyword">operator</span>=(obj2);
+<span class="hljs-comment">// - or in more conventional way</span>
+obj1 = obj2;
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// can return value</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Point2d</span> {</span>
+  <span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">int</span> x, y;
+  <span class="hljs-keyword">public</span>:
+    <span class="hljs-keyword">double</span> <span class="hljs-keyword">operator</span>-(<span class="hljs-keyword">const</span> pointwd &amp;right) {
+      <span class="hljs-keyword">return</span> <span class="hljs-built_in">sqrt</span>(<span class="hljs-built_in">pow</span>((x-right.x),<span class="hljs-number">2</span>) + <span class="hljs-built_in">pow</span>((y-right.y), <span class="hljs-number">2</span>));
+    }
+};
+</div></code></pre>
+</div>
+</div>
+<div class="row">
+<div class="col">
+<pre class="hljs"><code><div><span class="hljs-comment">// __operator overloading cont__</span>
+<span class="hljs-comment">// rtrn.type same as left operand supports:</span>
+object1 = object2 = object3;
+<span class="hljs-comment">// fn.decl:</span>
+<span class="hljs-keyword">const</span> SomeClass <span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> someClass &amp;rval);
+<span class="hljs-comment">// include as last statement:</span>
+<span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>; 
+<span class="hljs-comment">// - can change meaning of operator</span>
+<span class="hljs-comment">// - cannot change num. of operands</span>
+<span class="hljs-comment">// - cannot overload</span>
+?:  . .*  ::  <span class="hljs-keyword">sizeof</span>
+<span class="hljs-comment">// - `++, --` overloaded differently for prefix/postfix notation</span>
+<span class="hljs-comment">// - overloaded relationals should return `bool`</span>
+<span class="hljs-comment">// - overloaded stream operators `&gt;&gt;, &lt;&lt;` must return ref. to</span>
+<span class="hljs-comment">//   `istream, ostream` objs and take `istream, ostream` as params</span>
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// __overloaded `[]` operator</span>
+<span class="hljs-comment">// - can create classes that behave like arrays, provide bounds-checking</span>
+<span class="hljs-comment">//   on subscripts</span>
+<span class="hljs-comment">// - must consider constructor/destructor</span>
+<span class="hljs-comment">// - returns ref. to obj, not obj itself</span>
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// __this pointer__</span>
+<span class="hljs-comment">//  - avail. to memb.fns</span>
+<span class="hljs-comment">//  - always points to instnc. of class whose fn. called</span>
+<span class="hljs-comment">//  - passed as hidden arg. to all non-static memb.fns</span>
+student2.getStudentName(); <span class="hljs-comment">// `this` points to student2</span>
+</div></code></pre>
+</div>
+<div class="col">
+<pre class="hljs"><code><div><span class="hljs-comment">// __overloaded operators as member functions__</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">printLine</span><span class="hljs-params">(ostream&amp; out, <span class="hljs-keyword">int</span> n)</span></span>{
+  <span class="hljs-keyword">char</span> ch = out.fill();
+  out &lt;&lt; setfill(<span class="hljs-string">'-'</span>) &lt;&lt; setw(n) &lt;&lt; <span class="hljs-string">"-"</span> &lt;&lt; setfill(ch) &lt;&lt; <span class="hljs-built_in">endl</span>;
+  <span class="hljs-keyword">return</span>;
+}
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Boolean</span>{</span>
+  <span class="hljs-keyword">public</span>:
+  Boolean(<span class="hljs-keyword">int</span> = <span class="hljs-number">0</span>);             <span class="hljs-comment">// default constructor</span>
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setValue</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>;         <span class="hljs-comment">// mutator</span>
+  <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getValue</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span></span>;         <span class="hljs-comment">// accessor</span>
+  Boolean <span class="hljs-keyword">operator</span>!() <span class="hljs-keyword">const</span>;    <span class="hljs-comment">// overloaded operator for unary logical not</span>
+  <span class="hljs-comment">// overloaded operator for binary logical and</span>
+  Boolean <span class="hljs-keyword">operator</span>&amp;&amp;(<span class="hljs-keyword">const</span> Boolean&amp; rhs) <span class="hljs-keyword">const</span>;
+  <span class="hljs-keyword">private</span>:
+  <span class="hljs-keyword">int</span> value;
+};
+Boolean::Boolean(<span class="hljs-keyword">int</span> x){
+  setValue(x);
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Boolean::setValue</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>{
+  value = (x == <span class="hljs-number">0</span>) ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>;
+}
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Boolean::getValue</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span></span>{
+  <span class="hljs-keyword">return</span> value;
+}
+Boolean Boolean::<span class="hljs-keyword">operator</span>!() <span class="hljs-keyword">const</span>{
+  Boolean temp;
+  temp.setValue(<span class="hljs-number">1</span> - <span class="hljs-keyword">this</span>-&gt;getValue());
+  <span class="hljs-keyword">return</span> temp;
+}
+Boolean Boolean::<span class="hljs-keyword">operator</span>&amp;&amp;(<span class="hljs-keyword">const</span> Boolean&amp; rhs) <span class="hljs-keyword">const</span>{
+  Boolean temp;
+  temp.setValue(<span class="hljs-keyword">this</span>-&gt;getValue() * rhs.getValue());
+  <span class="hljs-keyword">return</span> temp;
+}
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+  Boolean a, b;
+  printLine(<span class="hljs-built_in">cout</span>, <span class="hljs-number">30</span>);
+  <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"  a       b       !a    a &amp;&amp; b"</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+  printLine(<span class="hljs-built_in">cout</span>, <span class="hljs-number">30</span>);
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt;= <span class="hljs-number">1</span>; i++){
+    b.setValue(<span class="hljs-number">0</span>);
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt;= <span class="hljs-number">1</span>; j++){
+      <span class="hljs-built_in">cout</span> &lt;&lt; setw(<span class="hljs-number">5</span>) &lt;&lt; ((a.getValue() == <span class="hljs-number">0</span>) ? <span class="hljs-string">"false"</span> : <span class="hljs-string">"true"</span>) &lt;&lt; <span class="hljs-string">"   "</span>
+            &lt;&lt; setw(<span class="hljs-number">5</span>) &lt;&lt; ((b.getValue() == <span class="hljs-number">0</span>) ? <span class="hljs-string">"false"</span> : <span class="hljs-string">"true"</span>) &lt;&lt; <span class="hljs-string">"   "</span>
+            &lt;&lt; setw(<span class="hljs-number">5</span>) &lt;&lt; ((!a.getValue() == <span class="hljs-number">0</span>) ? <span class="hljs-string">"false"</span> : <span class="hljs-string">"true"</span>) &lt;&lt; <span class="hljs-string">"   "</span>
+            &lt;&lt; setw(<span class="hljs-number">6</span>) &lt;&lt; (((a &amp;&amp; b).getValue() == <span class="hljs-number">0</span>) ? <span class="hljs-string">"false"</span> : <span class="hljs-string">"true"</span>)
+            &lt;&lt; <span class="hljs-built_in">endl</span>;
+      b = !b;
+    }
+    a = !a;
+  }
+  printLine(<span class="hljs-built_in">cout</span>, <span class="hljs-number">30</span>);
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</div></code></pre>
+</div>
+<div class="col">
+<pre class="hljs"><code><div><span class="hljs-comment">// __overloaded operators as friend functions__</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">printLine</span><span class="hljs-params">(ostream&amp; out, <span class="hljs-keyword">int</span> n)</span></span>{
+  <span class="hljs-keyword">char</span> ch = out.fill();
+  out &lt;&lt; setfill(<span class="hljs-string">'-'</span>) &lt;&lt; setw(n) &lt;&lt; <span class="hljs-string">"-"</span> &lt;&lt; setfill(ch) &lt;&lt; <span class="hljs-built_in">endl</span>;
+  <span class="hljs-keyword">return</span>;
+}
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Boolean</span>{</span>
+  <span class="hljs-keyword">friend</span> ostream&amp; <span class="hljs-keyword">operator</span>&lt;&lt;(ostream&amp; out, <span class="hljs-keyword">const</span> Boolean&amp; rhs);
+  <span class="hljs-comment">// overloaded operator for unary logical not as a friend function</span>
+  <span class="hljs-keyword">friend</span> Boolean <span class="hljs-keyword">operator</span>!(<span class="hljs-keyword">const</span> Boolean&amp; rhs);
+  <span class="hljs-comment">// overloaded operator for binary logical and as a friend function</span>
+  <span class="hljs-keyword">friend</span> Boolean <span class="hljs-keyword">operator</span>&amp;&amp;(<span class="hljs-keyword">const</span> Boolean&amp; lhs, <span class="hljs-keyword">const</span> Boolean&amp; rhs);
+  <span class="hljs-keyword">public</span>:
+  Boolean(<span class="hljs-keyword">int</span> = <span class="hljs-number">0</span>);             <span class="hljs-comment">// default constructor</span>
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setValue</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>;         <span class="hljs-comment">// mutator</span>
+  <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getValue</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span></span>;         <span class="hljs-comment">// accessor</span>
+  <span class="hljs-keyword">private</span>:
+  <span class="hljs-keyword">int</span> value;
+};
+Boolean::Boolean(<span class="hljs-keyword">int</span> x){
+  setValue(x);
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Boolean::setValue</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>{
+  value = (x == <span class="hljs-number">0</span>) ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>;
+}
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Boolean::getValue</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span></span>{
+  <span class="hljs-keyword">return</span> value;
+}
+Boolean <span class="hljs-keyword">operator</span>!(<span class="hljs-keyword">const</span> Boolean&amp; rhs){
+  Boolean temp;
+  temp.setValue(<span class="hljs-number">1</span> - rhs.getValue());
+  <span class="hljs-keyword">return</span> temp;
+}
+Boolean <span class="hljs-keyword">operator</span>&amp;&amp;(<span class="hljs-keyword">const</span> Boolean&amp; lhs, <span class="hljs-keyword">const</span> Boolean&amp; rhs){
+  Boolean temp;
+  temp.setValue(lhs.getValue() * rhs.getValue());
+  <span class="hljs-keyword">return</span> temp;
+}
+ostream&amp; <span class="hljs-keyword">operator</span>&lt;&lt;(ostream&amp; out, <span class="hljs-keyword">const</span> Boolean&amp; rhs){
+  <span class="hljs-keyword">char</span> ch = out.fill();
+  out &lt;&lt; setw(<span class="hljs-number">5</span>) &lt;&lt; ((rhs.getValue() == <span class="hljs-number">0</span>) ? <span class="hljs-string">"false"</span> : <span class="hljs-string">"true"</span>);
+  out.fill(ch);
+  <span class="hljs-keyword">return</span> out;
+}
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+  Boolean a, b;
+  printLine(<span class="hljs-built_in">cout</span>, <span class="hljs-number">30</span>);
+  <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"  a       b       !a    a &amp;&amp; b"</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+  printLine(<span class="hljs-built_in">cout</span>, <span class="hljs-number">30</span>);
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt;= <span class="hljs-number">1</span>; i++){
+    b.setValue(<span class="hljs-number">0</span>);
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt;= <span class="hljs-number">1</span>; j++){
+      <span class="hljs-built_in">cout</span> &lt;&lt; a &lt;&lt; <span class="hljs-string">"   "</span>
+            &lt;&lt; b &lt;&lt; <span class="hljs-string">"   "</span>
+            &lt;&lt; (!a) &lt;&lt; <span class="hljs-string">"   "</span>
+            &lt;&lt; <span class="hljs-string">' '</span> &lt;&lt; (a &amp;&amp; b)
+            &lt;&lt; <span class="hljs-built_in">endl</span>;
+      b = !b;
+    }
+    a = !a;
+  }
+  printLine(<span class="hljs-built_in">cout</span>, <span class="hljs-number">30</span>);
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</div></code></pre>
+</div>
+</div>
+</body>
+</html>
