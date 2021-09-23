@@ -9,10 +9,6 @@
 			"uri": "ssh://csunix/home/jcaldwell2"
 		},
 		{
-			"name": "pancake-charts",
-			"path": "../../dev/learning/pancake-charts"
-		},
-		{
 			"name": "3311",
 			"path": "../3311"
 		},
@@ -30,7 +26,9 @@
 			"*.html": "html",
 			"iostream": "cpp",
 			"lab04main.C": "cpp",
-			"lab03main.C": "cpp"
+			"lab03main.C": "cpp",
+			"lab12main.C": "cpp",
+			"lab13main.C": "cpp"
 		},
 		"files.watcherExclude": {
 			"**/target": true
