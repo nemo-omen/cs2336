@@ -2,8 +2,13 @@ CLASS = 2336
 BASE_DIR = /usr/local/$(CLASS)
 LINK_DIRS = -L$(BASE_DIR)/lib
 INCLUDE_DIRS = -I$(BASE_DIR)/include -I.
+<<<<<<< HEAD
 LFLAGS = -static -fPIE -lm -lbits
 CFLAGS = -static -fPIE -g -Wall -std=c++11
+=======
+LFLAGS = -lm -lbits
+CFLAGS = -g -Wall -std=c++11
+>>>>>>> 327b1cd45b4904d4f407f14368f2f1eb31096c2c
 
 .SECONDEXPANSION:
 CC = g++
