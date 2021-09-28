@@ -13,10 +13,10 @@ void printBase32(int num, ostream& os) {
     printBase32(unum >> 5, os);
     uint theBits = getBits(unum, 0, 5);
 
-    if(theBits > 9) {
-      os << (char)(theBits + 55);
-    } else {
+    if(theBits < 10) {
       os << theBits;
+    } else {
+      os << static_cast<char>(theBits - 10 + 'A');
     }
     
   } else {

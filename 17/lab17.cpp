@@ -11,12 +11,12 @@ void printHexadecimal(int num, ostream& os) {
   if(num != 0) {
     uint unum = static_cast<uint>(num);
     printHexadecimal(unum >> 4, os);
-    unsigned theBits = getBits(unum, 0, 4);
+    int theBits = getBits(unum, 0, 4);
 
-    if(theBits > 9) {
-      os << (char)(theBits + 55);
-    } else {
+    if(theBits < 10) {
       os << theBits;
+    } else {
+      os << static_cast<char>(theBits - 10 + 'A');
     }
 
   } else {

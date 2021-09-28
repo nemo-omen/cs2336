@@ -18,6 +18,9 @@
 		},
 		{
 			"path": "../../dev/learning/js/js-playground"
+		},
+		{
+			"path": "../../dev/learning/cpp/cpp-playground"
 		}
 	],
 	"settings": {
