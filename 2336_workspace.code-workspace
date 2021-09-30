@@ -36,7 +36,8 @@
 			"lab15main.C": "cpp",
 			"lab17main.C": "cpp",
 			"lab18main.C": "cpp",
-			"lab19main.C": "cpp"
+			"lab19main.C": "cpp",
+			"lab20main.C": "cpp"
 		},
 		"files.watcherExclude": {
 			"**/target": true

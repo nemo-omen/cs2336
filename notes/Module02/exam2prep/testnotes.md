@@ -19,7 +19,9 @@
   <div class="col"> <!-- P1, C1 Begin-->
 
 ```cpp
-
+// __Recursion__
+// DEPTH: REMEMBER - depth does __not__ include
+// the initial call to the function 
 ```
 
   </div><!-- P1, C1 End-->
