@@ -121,6 +121,17 @@ showReverse(head);
 // - disadv:   inefficient - for array of N elements,
 //             examines N/2 elements on average for 
 //             value in array, N elements for value not in array​
+// IN CLASS EX:
+template <typename T>
+const T *linearSearch(const T *array, int n, T itemToFind) {
+  const T *ptr, *const end = array + n;
+  for(ptr = array; ptr < end; ++ptr) {
+    if(*ptr == itemToFind) return ptr;
+  }
+
+  return nullptr;
+}
+// TXTBOOK EX:
 int linearSearch(int arr[], int size, int value)​
 {​
    int index = 0;      // Used as a subscript to search the array​
@@ -178,6 +189,10 @@ int binarySearch(int array[], int size, int value)​
    return position;​
 } ​
 ```
+
+  </div><!-- P1, C2 End-->
+  <div class="col"> <!-- P1, C3 Begin-->
+
 ```cpp
 // BUBBLE SORT
 // - bene: easy to understand and implement
@@ -196,9 +211,6 @@ void bubbleSort(T *array, int n) {
   }
 }
 ```
-
-  </div><!-- P1, C2 End-->
-  <div class="col"> <!-- P1, C3 Begin-->
 
 ```cpp
 // TOWERS OF HANOI
@@ -281,3 +293,143 @@ void printArray(const T * const array, int count) {
 
   </div><!-- P1, C3 End-->
 </div><!-- P1 End -->
+
+<div class="row"><!-- P1 Begin -->
+  <div class="col"> <!-- P1, C1 Begin-->
+
+```cpp
+// LAB 12
+ostream& insertComma(unsigned long num, ostream& os){
+    if (num < 1000){
+        os << num;
+    } else {
+        insertComma(num / 1000, os);
+        char ch = os.fill();
+        os << ',' << setfill('0') << setw(3) << num % 1000;
+        os.fill(ch);    
+    }
+    return os;
+}
+```
+```cpp
+// LAB 13
+int countOneBits(int num){
+    if (num != 0) {
+        uint unum = static_cast<uint>(num);
+        return getBit(num, 0) + countOneBits(unum >> 1);
+    } else {
+        return 0;
+    }
+}
+```
+```cpp
+// LAB 14
+void printBinary(int num, ostream& os) {
+  if(num != 0) {
+    uint unum = static_cast<uint>(num);
+    printBinary(unum >> 1, os);
+    os << getBit(unum, 0);
+  } else {
+    return;
+  }
+}
+```
+```cpp
+// LAB 15
+void printQuaternary(int num, ostream& os) {
+  if(num != 0) {
+    uint unum = static_cast<uint>(num);
+    printQuaternary(unum >> 2, os);
+    os << getBits(unum, 0, 2);
+  } else {
+    return;
+  }
+}
+```
+```cpp
+// LAB 16
+void printOctal(int num, ostream& os) {
+  if(num != 0) {
+    uint unum = static_cast<uint>(num);
+    printOctal(unum >> 3, os);
+    os << getBits(unum, 0, 3);
+  } else {
+    return;
+  }
+}
+```
+```cpp
+// LAB 17
+void printHexadecimal(int num, ostream& os) {
+  if(num != 0) {
+    uint unum = static_cast<uint>(num);
+    printHexadecimal(unum >> 4, os);
+    int theBits = getBits(unum, 0, 4);
+
+    if(theBits < 10) {
+      os << theBits;
+    } else {
+      os << static_cast<char>(theBits - 10 + 'A');
+    }
+
+  } else {
+    return;
+  }
+}
+```
+```cpp
+// LAB 18
+void printBase32(int num, ostream& os) {
+  if(num != 0) {
+    uint unum = static_cast<uint>(num);
+    printBase32(unum >> 5, os);
+    uint theBits = getBits(unum, 0, 5);
+
+    if(theBits < 10) {
+      os << theBits;
+    } else {
+      os << static_cast<char>(theBits - 10 + 'A');
+    }
+    
+  } else {
+    return;
+  }
+}
+```
+  </div>
+
+  <div class="col">
+
+```cpp
+// LAB 19
+bool isPalindrome(string s) {
+  if(s.length() <= 1) {
+    return true;
+  } else {
+    if(tolower(s.front()) != tolower(s.back())) {
+      return false;
+    } else {
+      return (isPalindrome(s.substr(1, s.length() - 2)));
+    }
+  }
+}
+```
+```cpp
+// LAB 20
+template<typename T>
+void bubbleSort(T *array, int n) {
+  if(n <= 1) {
+    return;
+  } else {
+    for(int i = 0; i < (n - 1); ++i) {
+      if(array[i] > array[i + 1]) {
+        mySwap(array[i], array[i + 1]);
+      }
+    }
+    bubbleSort(array, n - 1);
+  }
+}
+```
+
+  </div>
+</div>

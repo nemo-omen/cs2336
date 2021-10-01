@@ -505,6 +505,17 @@ showReverse(head);
 <span class="hljs-comment">// - disadv:   inefficient - for array of N elements,</span>
 <span class="hljs-comment">//             examines N/2 elements on average for </span>
 <span class="hljs-comment">//             value in array, N elements for value not in array​</span>
+<span class="hljs-comment">// IN CLASS EX:</span>
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;
+<span class="hljs-function"><span class="hljs-keyword">const</span> T *<span class="hljs-title">linearSearch</span><span class="hljs-params">(<span class="hljs-keyword">const</span> T *<span class="hljs-built_in">array</span>, <span class="hljs-keyword">int</span> n, T itemToFind)</span> </span>{
+  <span class="hljs-keyword">const</span> T *ptr, *<span class="hljs-keyword">const</span> end = <span class="hljs-built_in">array</span> + n;
+  <span class="hljs-keyword">for</span>(ptr = <span class="hljs-built_in">array</span>; ptr &lt; end; ++ptr) {
+    <span class="hljs-keyword">if</span>(*ptr == itemToFind) <span class="hljs-keyword">return</span> ptr;
+  }
+
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">nullptr</span>;
+}
+<span class="hljs-comment">// TXTBOOK EX:</span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">linearSearch</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arr[], <span class="hljs-keyword">int</span> size, <span class="hljs-keyword">int</span> value)</span>​
 </span>{​
    <span class="hljs-keyword">int</span> index = <span class="hljs-number">0</span>;      <span class="hljs-comment">// Used as a subscript to search the array​</span>
@@ -561,6 +572,8 @@ showReverse(head);
    <span class="hljs-keyword">return</span> position;​
 } ​
 </div></code></pre>
+  </div><!-- P1, C2 End-->
+  <div class="col"> <!-- P1, C3 Begin-->
 <pre class="hljs"><code><div><span class="hljs-comment">// BUBBLE SORT</span>
 <span class="hljs-comment">// - bene: easy to understand and implement</span>
 <span class="hljs-comment">// - disadv: inefficient, slow for lg arrs</span>
@@ -578,8 +591,6 @@ showReverse(head);
   }
 }
 </div></code></pre>
-  </div><!-- P1, C2 End-->
-  <div class="col"> <!-- P1, C3 Begin-->
 <pre class="hljs"><code><div><span class="hljs-comment">// TOWERS OF HANOI</span>
   <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> NUM_DISCS = <span class="hljs-number">3</span>;
   <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> FROM_PEG = <span class="hljs-number">1</span>;
@@ -652,5 +663,131 @@ showReverse(head);
 </div></code></pre>
   </div><!-- P1, C3 End-->
 </div><!-- P1 End -->
+<div class="row"><!-- P1 Begin -->
+  <div class="col"> <!-- P1, C1 Begin-->
+<pre class="hljs"><code><div><span class="hljs-comment">// LAB 12</span>
+<span class="hljs-function">ostream&amp; <span class="hljs-title">insertComma</span><span class="hljs-params">(<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> num, ostream&amp; os)</span></span>{
+    <span class="hljs-keyword">if</span> (num &lt; <span class="hljs-number">1000</span>){
+        os &lt;&lt; num;
+    } <span class="hljs-keyword">else</span> {
+        insertComma(num / <span class="hljs-number">1000</span>, os);
+        <span class="hljs-keyword">char</span> ch = os.fill();
+        os &lt;&lt; <span class="hljs-string">','</span> &lt;&lt; setfill(<span class="hljs-string">'0'</span>) &lt;&lt; setw(<span class="hljs-number">3</span>) &lt;&lt; num % <span class="hljs-number">1000</span>;
+        os.fill(ch);    
+    }
+    <span class="hljs-keyword">return</span> os;
+}
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// LAB 13</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">countOneBits</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num)</span></span>{
+    <span class="hljs-keyword">if</span> (num != <span class="hljs-number">0</span>) {
+        uint unum = <span class="hljs-keyword">static_cast</span>&lt;uint&gt;(num);
+        <span class="hljs-keyword">return</span> getBit(num, <span class="hljs-number">0</span>) + countOneBits(unum &gt;&gt; <span class="hljs-number">1</span>);
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+}
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// LAB 14</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">printBinary</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num, ostream&amp; os)</span> </span>{
+  <span class="hljs-keyword">if</span>(num != <span class="hljs-number">0</span>) {
+    uint unum = <span class="hljs-keyword">static_cast</span>&lt;uint&gt;(num);
+    printBinary(unum &gt;&gt; <span class="hljs-number">1</span>, os);
+    os &lt;&lt; getBit(unum, <span class="hljs-number">0</span>);
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">return</span>;
+  }
+}
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// LAB 15</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">printQuaternary</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num, ostream&amp; os)</span> </span>{
+  <span class="hljs-keyword">if</span>(num != <span class="hljs-number">0</span>) {
+    uint unum = <span class="hljs-keyword">static_cast</span>&lt;uint&gt;(num);
+    printQuaternary(unum &gt;&gt; <span class="hljs-number">2</span>, os);
+    os &lt;&lt; getBits(unum, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>);
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">return</span>;
+  }
+}
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// LAB 16</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">printOctal</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num, ostream&amp; os)</span> </span>{
+  <span class="hljs-keyword">if</span>(num != <span class="hljs-number">0</span>) {
+    uint unum = <span class="hljs-keyword">static_cast</span>&lt;uint&gt;(num);
+    printOctal(unum &gt;&gt; <span class="hljs-number">3</span>, os);
+    os &lt;&lt; getBits(unum, <span class="hljs-number">0</span>, <span class="hljs-number">3</span>);
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">return</span>;
+  }
+}
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// LAB 17</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">printHexadecimal</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num, ostream&amp; os)</span> </span>{
+  <span class="hljs-keyword">if</span>(num != <span class="hljs-number">0</span>) {
+    uint unum = <span class="hljs-keyword">static_cast</span>&lt;uint&gt;(num);
+    printHexadecimal(unum &gt;&gt; <span class="hljs-number">4</span>, os);
+    <span class="hljs-keyword">int</span> theBits = getBits(unum, <span class="hljs-number">0</span>, <span class="hljs-number">4</span>);
+
+    <span class="hljs-keyword">if</span>(theBits &lt; <span class="hljs-number">10</span>) {
+      os &lt;&lt; theBits;
+    } <span class="hljs-keyword">else</span> {
+      os &lt;&lt; <span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">char</span>&gt;(theBits - <span class="hljs-number">10</span> + <span class="hljs-string">'A'</span>);
+    }
+
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">return</span>;
+  }
+}
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// LAB 18</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">printBase32</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num, ostream&amp; os)</span> </span>{
+  <span class="hljs-keyword">if</span>(num != <span class="hljs-number">0</span>) {
+    uint unum = <span class="hljs-keyword">static_cast</span>&lt;uint&gt;(num);
+    printBase32(unum &gt;&gt; <span class="hljs-number">5</span>, os);
+    uint theBits = getBits(unum, <span class="hljs-number">0</span>, <span class="hljs-number">5</span>);
+
+    <span class="hljs-keyword">if</span>(theBits &lt; <span class="hljs-number">10</span>) {
+      os &lt;&lt; theBits;
+    } <span class="hljs-keyword">else</span> {
+      os &lt;&lt; <span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">char</span>&gt;(theBits - <span class="hljs-number">10</span> + <span class="hljs-string">'A'</span>);
+    }
+    
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">return</span>;
+  }
+}
+</div></code></pre>
+  </div>
+  <div class="col">
+<pre class="hljs"><code><div><span class="hljs-comment">// LAB 19</span>
+<span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isPalindrome</span><span class="hljs-params">(<span class="hljs-built_in">string</span> s)</span> </span>{
+  <span class="hljs-keyword">if</span>(s.length() &lt;= <span class="hljs-number">1</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">if</span>(<span class="hljs-built_in">tolower</span>(s.front()) != <span class="hljs-built_in">tolower</span>(s.back())) {
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">return</span> (isPalindrome(s.substr(<span class="hljs-number">1</span>, s.length() - <span class="hljs-number">2</span>)));
+    }
+  }
+}
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// LAB 20</span>
+<span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;
+<span class="hljs-keyword">void</span> <span class="hljs-title">bubbleSort</span><span class="hljs-params">(T *<span class="hljs-built_in">array</span>, <span class="hljs-keyword">int</span> n)</span> </span>{
+  <span class="hljs-keyword">if</span>(n &lt;= <span class="hljs-number">1</span>) {
+    <span class="hljs-keyword">return</span>;
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; (n - <span class="hljs-number">1</span>); ++i) {
+      <span class="hljs-keyword">if</span>(<span class="hljs-built_in">array</span>[i] &gt; <span class="hljs-built_in">array</span>[i + <span class="hljs-number">1</span>]) {
+        mySwap(<span class="hljs-built_in">array</span>[i], <span class="hljs-built_in">array</span>[i + <span class="hljs-number">1</span>]);
+      }
+    }
+    bubbleSort(<span class="hljs-built_in">array</span>, n - <span class="hljs-number">1</span>);
+  }
+}
+</div></code></pre>
+  </div>
+</div>
 </body>
 </html>

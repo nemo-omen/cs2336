@@ -1,0 +1,17 @@
+{
+  "name": "21",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lab21.cpp",
+  "scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "cppRun": "./lab21main",
+  "compile": "make clean && make",
+  "cppBoot": "npm run compile && echo '--cpp output --\n' && npm run cppRun && echo '\n-- cpp end--'",
+  "start": "npm run watch-cpp",
+  "watch-cpp": "nodemon --watch lab21.cpp --exec 'npm run cppBoot'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
