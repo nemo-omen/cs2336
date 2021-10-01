@@ -406,16 +406,220 @@ code {
   }
   pre {
     margin: 0;
+    background-color: #f2f2f2 !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #010101;
+    }
+    pre{
+      background-color: #111111 !important;
+      border-color: transparent;
+    }
   }
 </style>
 <div class="row"><!-- P1 Begin -->
   <div class="col"> <!-- P1, C1 Begin-->
-<pre class="hljs"><code><div><span class="hljs-comment">// __Recursion__</span>
-<span class="hljs-comment">// DEPTH: REMEMBER - depth does __not__ include</span>
-<span class="hljs-comment">// the initial call to the function </span>
+<pre class="hljs"><code><div><span class="hljs-comment">// __Recursion__ DEPTH: - depth does __not__ include</span>
+<span class="hljs-comment">// the initial call to the function</span>
+<span class="hljs-comment">// - the base case is the "simpler to solve problem"</span>
+<span class="hljs-comment">// - recursion stops when the base case is reached</span>
+<span class="hljs-comment">// - a recursive function __must always__ contain</span>
+<span class="hljs-comment">//   a test to determine if another recursive call</span>
+<span class="hljs-comment">//   should be made or if recursion should stop</span>
+<span class="hljs-comment">// - each time a rec-fn is called, a new copy of the fn</span>
+<span class="hljs-comment">//   runs with new instances of params and local vars</span>
+<span class="hljs-comment">// - as each copy finishes executing, it returns to the</span>
+<span class="hljs-comment">//   copy of the fn that called it</span>
+<span class="hljs-comment">// - when the initial fn finished exec. it returns to</span>
+<span class="hljs-comment">//   whichever part of the program it was called from</span>
+<span class="hljs-comment">// __DIRECT RECURSION__ - fn calls itself</span>
+<span class="hljs-comment">// __INDIRECT__ - fn A calls fn B - fn B calls fn A</span>
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// Recursive factorial fn</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">factorial</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num)</span> </span>{
+  <span class="hljs-keyword">if</span>(num &gt; <span class="hljs-number">0</span>) {
+    <span class="hljs-keyword">return</span> num * factorial(num - <span class="hljs-number">1</span>);
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+  }
+}
+<span class="hljs-comment">// if we were using 'tail-recursion' the above could be written as</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">factorial</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num)</span> </span>{
+  <span class="hljs-keyword">if</span>(num &lt;= <span class="hljs-number">0</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;     <span class="hljs-comment">// early return of base case</span>
+  } <span class="hljs-keyword">else</span> {
+                  <span class="hljs-comment">// recursive case last </span>
+    <span class="hljs-keyword">return</span> num * factorial(num - <span class="hljs-number">1</span>);
+  }
+}
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// RECURSIVE GCD - euclid's algorithm</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">gcd</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y)</span> </span>{
+  <span class="hljs-keyword">if</span>(x % y == <span class="hljs-number">0</span>) {
+    <span class="hljs-keyword">return</span> y;
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">return</span> gcd(y, x % y);
+  }
+}
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// FIBONACCI SEQUENCE</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">fib</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>{
+  <span class="hljs-keyword">if</span>(n &lt;= <span class="hljs-number">0</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(n == <span class="hljs-number">1</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">return</span> fib(n - <span class="hljs-number">1</span>) + fib(n - <span class="hljs-number">2</span>);
+  }
+}
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// RECURSIVE LINKED LIST FNS</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">NumberList::countNodes</span><span class="hljs-params">(ListNode *nodePtr)</span> <span class="hljs-keyword">const</span> </span>{
+  <span class="hljs-keyword">if</span>(nodePtr == nullPtr) {
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span> + countNodes(nodePtr-&gt;next);
+  }
+}
+<span class="hljs-comment">// calling numNodes</span>
+<span class="hljs-keyword">return</span> countNodes(head);
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">NumberList::showReverse</span><span class="hljs-params">(ListNode *nodePtr)</span> </span>{
+  <span class="hljs-keyword">if</span>(nodePtr !=) {
+    showReverse(nodePtr-&gt;next);
+    <span class="hljs-built_in">cout</span> &lt;&lt; nodePtr-&gt;value &lt;&lt; <span class="hljs-string">" "</span>;
+  }
+}
+<span class="hljs-comment">// calling</span>
+showReverse(head);
 </div></code></pre>
   </div><!-- P1, C1 End-->
   <div class="col"> <!-- P1, C2 Begin-->
+<pre class="hljs"><code><div><span class="hljs-comment">// LINEAR SEARCH</span>
+<span class="hljs-comment">// SEQUENTIAL SEARCH</span>
+<span class="hljs-comment">// - steps through each element</span>
+<span class="hljs-comment">//   one by one until it finds a match</span>
+<span class="hljs-comment">// - benefits: easy to understand</span>
+<span class="hljs-comment">//             array can be any order</span>
+<span class="hljs-comment">// - disadv:   inefficient - for array of N elements,</span>
+<span class="hljs-comment">//             examines N/2 elements on average for </span>
+<span class="hljs-comment">//             value in array, N elements for value not in array​</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">linearSearch</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arr[], <span class="hljs-keyword">int</span> size, <span class="hljs-keyword">int</span> value)</span>​
+</span>{​
+   <span class="hljs-keyword">int</span> index = <span class="hljs-number">0</span>;      <span class="hljs-comment">// Used as a subscript to search the array​</span>
+   <span class="hljs-keyword">int</span> position = <span class="hljs-number">-1</span>;  <span class="hljs-comment">// To record the position of search value​</span>
+   <span class="hljs-keyword">bool</span> found = <span class="hljs-literal">false</span>; <span class="hljs-comment">// Flag to indicate if value was found​</span>
+​
+   <span class="hljs-keyword">while</span> (index &lt; size &amp;&amp; !found)​
+   {​
+      <span class="hljs-keyword">if</span> (arr[index] == value) <span class="hljs-comment">// If the value is found ​</span>
+      { ​
+         found = <span class="hljs-literal">true</span>; <span class="hljs-comment">// Set the flag ​</span>
+         position = index; <span class="hljs-comment">// Record the value's subscript​</span>
+      }​
+      index++; <span class="hljs-comment">// Go to the next element​</span>
+   }​
+<span class="hljs-keyword">return</span> position; <span class="hljs-comment">// Return the position, or -1​</span>
+}​
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// BINARY SEARCH</span>
+<span class="hljs-comment">// - requires elements to be in order</span>
+<span class="hljs-comment">//   divides arr into 3 sections</span>
+<span class="hljs-comment">//    - middle</span>
+<span class="hljs-comment">//    - side 1</span>
+<span class="hljs-comment">//    - side 2</span>
+<span class="hljs-comment">//   if middle = correct elem - done</span>
+<span class="hljs-comment">//   else - repeat step 1 and divide again</span>
+<span class="hljs-comment">//   until value is found</span>
+<span class="hljs-comment">// - benefits: more efficient than linear search.</span>
+<span class="hljs-comment">//   For array of N elements, performs at</span>
+<span class="hljs-comment">//   most log2N comparisons​</span>
+<span class="hljs-comment">// - disadv: requires all elements be sorted</span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">binarySearch</span><span class="hljs-params">(<span class="hljs-keyword">int</span> <span class="hljs-built_in">array</span>[], <span class="hljs-keyword">int</span> size, <span class="hljs-keyword">int</span> value)</span>​
+</span>{​
+   <span class="hljs-keyword">int</span> first = <span class="hljs-number">0</span>,             <span class="hljs-comment">// First array element​</span>
+       last = size - <span class="hljs-number">1</span>,       <span class="hljs-comment">// Last array element​</span>
+       middle,                <span class="hljs-comment">// Mid point of search​</span>
+       position = <span class="hljs-number">-1</span>;         <span class="hljs-comment">// Position of search value​</span>
+   <span class="hljs-keyword">bool</span> found = <span class="hljs-literal">false</span>;        <span class="hljs-comment">// Flag​</span>
+​
+   <span class="hljs-keyword">while</span> (!found &amp;&amp; first &lt;= last)​
+   {​
+      middle = (first + last) / <span class="hljs-number">2</span>;     <span class="hljs-comment">// Calculate mid point​</span>
+      <span class="hljs-keyword">if</span> (<span class="hljs-built_in">array</span>[middle] == value)      <span class="hljs-comment">// If value is found at mid​</span>
+      {​
+         found = <span class="hljs-literal">true</span>;​
+         position = middle;​
+      }​
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">array</span>[middle] &gt; value)  <span class="hljs-comment">// If value is in lower half​</span>
+         last = middle - <span class="hljs-number">1</span>;​
+      <span class="hljs-keyword">else</span>​
+         first = middle + <span class="hljs-number">1</span>;           <span class="hljs-comment">// If value is in upper half​</span>
+   }​
+   <span class="hljs-keyword">return</span> position;​
+} ​
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// BUBBLE SORT</span>
+<span class="hljs-comment">// - bene: easy to understand and implement</span>
+<span class="hljs-comment">// - disadv: inefficient, slow for lg arrs</span>
+<span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;
+<span class="hljs-keyword">void</span> <span class="hljs-title">bubbleSort</span><span class="hljs-params">(T *<span class="hljs-built_in">array</span>, <span class="hljs-keyword">int</span> n)</span> </span>{
+  <span class="hljs-keyword">if</span>(n &lt;= <span class="hljs-number">1</span>) {
+    <span class="hljs-keyword">return</span>;
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; (n - <span class="hljs-number">1</span>); ++i) {
+      <span class="hljs-keyword">if</span>(<span class="hljs-built_in">array</span>[i] &gt; <span class="hljs-built_in">array</span>[i + <span class="hljs-number">1</span>]) {
+        mySwap(<span class="hljs-built_in">array</span>[i], <span class="hljs-built_in">array</span>[i + <span class="hljs-number">1</span>]);
+      }
+    }
+    bubbleSort(<span class="hljs-built_in">array</span>, n - <span class="hljs-number">1</span>);
+  }
+}
+</div></code></pre>
+  </div><!-- P1, C2 End-->
+  <div class="col"> <!-- P1, C3 Begin-->
+<pre class="hljs"><code><div><span class="hljs-comment">// TOWERS OF HANOI</span>
+  <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> NUM_DISCS = <span class="hljs-number">3</span>;
+  <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> FROM_PEG = <span class="hljs-number">1</span>;
+  <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> TEMP_PEG = <span class="hljs-number">2</span>;
+  <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> TO_PEG = <span class="hljs-number">3</span>;
+  moveDiscs(NUM_DISCS, FROM_PEG, TO_PEG, TEMP_PEG);
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">moveDiscs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num, <span class="hljs-keyword">int</span> fromPeg, <span class="hljs-keyword">int</span> toPeg, <span class="hljs-keyword">int</span> tempPeg)</span> </span>{
+  <span class="hljs-keyword">if</span>(num &gt; <span class="hljs-number">0</span>) {
+    moveDiscs(num - <span class="hljs-number">1</span>, fromPeg, toPeg, tempPeg);
+    moveDiscs(num - <span class="hljs-number">1</span>, tempPeg, toPeg, fromPeg);
+  }
+}
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// QUICK SORT ALGORITHM</span>
+<span class="hljs-comment">// - recursive algo that can sort an array</span>
+<span class="hljs-comment">//   or linear linked list</span>
+<span class="hljs-comment">// - determines an element/node to use as a </span>
+<span class="hljs-comment">//   pivot value</span>
+<span class="hljs-comment">// - once pivot value is determined, values</span>
+<span class="hljs-comment">//   are shifted so elements in sublist1 are</span>
+<span class="hljs-comment">//   &lt; pivot and elements in sublist2 are</span>
+<span class="hljs-comment">//   &gt; pivot</span>
+<span class="hljs-comment">// - algo then sorts sublist1 and sublist2</span>
+<span class="hljs-comment">// - base case: sublist size == 1</span>
+<span class="hljs-comment">// EXHAUSTIVE ALGORITHM</span>
+<span class="hljs-comment">//    - search a set of combinations to find</span>
+<span class="hljs-comment">//      an optimal one::change for certain amt</span>
+<span class="hljs-comment">//      that uses fewest coins</span>
+<span class="hljs-comment">//    - Uses the generation of all possible</span>
+<span class="hljs-comment">//      combinations when determining the</span>
+<span class="hljs-comment">//      optimal one </span>
+<span class="hljs-comment">// RECURSION VS ITERATION</span>
+<span class="hljs-comment">// RECURSION</span>
+<span class="hljs-comment">// + Models certain algorithms most accurately</span>
+<span class="hljs-comment">// + Results in shorter, simpler functions</span>
+<span class="hljs-comment">// - may not execute efficiently</span>
+<span class="hljs-comment">// ITERATION</span>
+<span class="hljs-comment">// + executes more efficiently</span>
+<span class="hljs-comment">// - often harder to code and understand</span>
+</div></code></pre>
 <pre class="hljs"><code><div><span class="hljs-comment">// __TEMPLATES__</span>
 <span class="hljs-comment">// most c++ compilers require the complete def. of</span>
 <span class="hljs-comment">// a template to appear in the client source-code</span>
@@ -446,25 +650,7 @@ code {
 <span class="hljs-comment">// is sams size as code that would have been written</span>
 <span class="hljs-comment">// as separate overloaded fns</span>
 </div></code></pre>
-  </div><!-- P1, C2 End-->
-  <div class="col"> <!-- P1, C3 Begin-->
-<pre class="hljs"><code><div>
-</div></code></pre>
   </div><!-- P1, C3 End-->
 </div><!-- P1 End -->
-<div class="row"><!-- P2 Begin -->
-  <div class="col"> <!-- P2, C1 Begin-->
-<pre class="hljs"><code><div>
-</div></code></pre>
-  </div><!-- P2, C1 End-->
-  <div class="col"> <!-- P2, C2 Begin-->
-<pre class="hljs"><code><div>
-</div></code></pre>
-  </div><!-- P2, C2 End-->
-  <div class="col"> <!-- P2, C3 Begin-->
-<pre class="hljs"><code><div>
-</div></code></pre>
-  </div><!-- P2, C3 End-->
-</div><!-- P2 End -->
 </body>
 </html>
