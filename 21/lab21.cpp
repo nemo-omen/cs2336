@@ -5,10 +5,19 @@
 template <typename T>
 // n = size of array
 const T *linearSearch(const T *array, int n, T itemToFind) {
-  // const T *ptr, *const end = array + n;
-
-  // for(ptr = array; ptr < end; ++ptr) {
-  //   if(*ptr == itemToFind) return ptr;
-  // }
+  if(n == 0) return nullptr;
   
+  if(*array == itemToFind) {
+    return array;
+  } else {
+    return linearSearch(array + 1, n - 1, itemToFind);
+  }
+  // if(n > 0) {
+  //   if(*array == itemToFind) {
+  //     return array;
+  //   } else {
+  //     return linearSearch(array + 1, n - 1, itemToFind);
+  //   }
+  // }
+  // return nullptr;
 }
