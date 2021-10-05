@@ -17,14 +17,13 @@ void mySwap(T& first, T& second) {
 // each time moving the largest element to the end of the array
 template<typename T>
 void bubbleSort(T *array, int n) {
-  if(n <= 1) {
-    return;
-  } else {
-    for(int i = 0; i < (n - 1); ++i) {
-      if(array[i] > array[i + 1]) {
-        mySwap(array[i], array[i + 1]);
-      }
+  if(n <= 1) return;
+
+  for(int i = 0; i < (n - 1); ++i) {
+    if(array[i] > array[i + 1]) {
+      mySwap(array[i], array[i + 1]);
     }
-    bubbleSort(array, n - 1);
   }
+  
+  bubbleSort(array, n - 1);
 }
