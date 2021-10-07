@@ -19,13 +19,11 @@ const T *binarySearch(const T *first, const T *last, T itemToFind) {
     return middle;
   }
 
-  // recursive case 1
   if(*middle < itemToFind) {
+  // recursive case 1
     return binarySearch(middle + 1, last, itemToFind);
-  }
-
+  } else {
   // recursive case 2
-  if(*middle > itemToFind) {
     return binarySearch(first, middle - 1, itemToFind);
   }
 }
