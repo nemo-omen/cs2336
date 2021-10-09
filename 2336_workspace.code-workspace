@@ -21,6 +21,12 @@
 		},
 		{
 			"path": "../../dev/learning/cpp/cpp-playground"
+		},
+		{
+			"path": "../../dev/projects/pkgs/remark-code-figure"
+		},
+		{
+			"path": "../../dev/projects/remark-code-figure-test"
 		}
 	],
 	"settings": {
@@ -45,6 +51,6 @@
 		"files.watcherExclude": {
 			"**/target": true
 		},
-		"liveServer.settings.multiRootWorkspaceName": "2336"
+		"liveServer.settings.multiRootWorkspaceName": "remark-code-figure-test"
 	}
 }
