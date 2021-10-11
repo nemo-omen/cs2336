@@ -1,5 +1,7 @@
+// Jeff Caldwell
+// CS 2336
+// Lab 23
 
-// iterative solution
 template<typename T>
 int numDistinct(const T *array, int n) {
   const T *j;
@@ -10,9 +12,8 @@ int numDistinct(const T *array, int n) {
   for(j = array + 1; j < end && *j != *array; j++) {
   }
 
-  if(array >= end) {
-    // return numDistinct(array + 1, n - 1) + 1;
-    return 1;
+  if(j >= end) {
+    return numDistinct(array + 1, n - 1) + 1;
   }
   return numDistinct(array + 1, n - 1);
 }
