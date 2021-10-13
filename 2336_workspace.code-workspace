@@ -27,6 +27,12 @@
 		},
 		{
 			"path": "../../dev/projects/remark-code-figure-test"
+		},
+		{
+			"path": "../../dev/projects/pkgs/remark-shiki"
+		},
+		{
+			"path": "../../dev/projects/mement"
 		}
 	],
 	"settings": {
