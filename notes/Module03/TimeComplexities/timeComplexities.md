@@ -132,3 +132,5 @@ while(i < n) {
   - `n(3n + 4)`
 - now move up to the global scope
   - `n(3n + 4) + 3` or, to be correct <code>3n<sup>2</sup> + 4n + 3</code>
+  - this algo's highest exponent is `2`, that's going to give us a parabolic shape
+    - that's definitely not fast!
