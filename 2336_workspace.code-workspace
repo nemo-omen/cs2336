@@ -33,6 +33,9 @@
 		},
 		{
 			"path": "../../dev/projects/mement"
+		},
+		{
+			"path": "../mement-sveltekit"
 		}
 	],
 	"settings": {
