@@ -35,7 +35,7 @@
 			"path": "../../dev/projects/mement"
 		},
 		{
-			"path": "../mement-sveltekit"
+			"path": "../../dev/projects/mement-sveltekit"
 		}
 	],
 	"settings": {
