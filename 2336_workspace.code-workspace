@@ -5,10 +5,6 @@
 			"path": "."
 		},
 		{
-			"name": "SSH FS - csunix",
-			"uri": "ssh://csunix/home/jcaldwell2"
-		},
-		{
 			"name": "3311",
 			"path": "../3311"
 		},
@@ -17,24 +13,31 @@
 			"path": "../1351"
 		},
 		{
+			"name": "js-playground",
 			"path": "../../dev/learning/js/js-playground"
 		},
 		{
+			"name": "cpp-playground",
 			"path": "../../dev/learning/cpp/cpp-playground"
 		},
 		{
+			"name": "remark-code-figure",
 			"path": "../../dev/projects/pkgs/remark-code-figure"
 		},
 		{
+			"name": "remark-code-figure-test",
 			"path": "../../dev/projects/remark-code-figure-test"
 		},
 		{
+			"name": "remark-shiki",
 			"path": "../../dev/projects/pkgs/remark-shiki"
 		},
 		{
+			"name": "mement",
 			"path": "../../dev/projects/mement"
 		},
 		{
+			"name": "mement-sveltekit",
 			"path": "../../dev/projects/mement-sveltekit"
 		}
 	],
@@ -56,7 +59,8 @@
 			"lab21main.C": "cpp",
 			"lab22main.C": "cpp",
 			"lab23main.C": "cpp",
-			"lab25main.C": "cpp"
+			"lab25main.C": "cpp",
+			"lab26main.C": "cpp"
 		},
 		"files.watcherExclude": {
 			"**/target": true
