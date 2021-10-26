@@ -23,10 +23,14 @@ int main()
     intAcc.addValue(-1);
     words.addValue("b" + vowels.substr(intAcc.getTotal(), 1) + "t");
     letter.addValue(1);
-    cout << "intAcc = " << intAcc.getTotal() << endl;
-    cout << "sum = " << sum.getTotal() << endl;
-    cout << "words = " << words.getTotal() << endl;
-    cout << "letter = " << letter.getTotal() << endl << endl;
+    // cout << "intAcc = " << intAcc.getTotal() << endl;
+    // cout << "sum = " << sum.getTotal() << endl;
+    // cout << "words = " << words.getTotal() << endl;
+    // cout << "letter = " << letter.getTotal() << endl << endl;
+    cout << "intAcc = " << intAcc << endl;
+    cout << "sum = " << sum << endl;
+    cout << "words = " << words << endl;
+    cout << "letter = " << letter << endl << endl;
   }
 
   return EXIT_SUCCESS;
