@@ -4,7 +4,7 @@
 
 template<typename U>
 ostream& operator<<(ostream& output, const Accumulator<U>& obj) {
-  output << *obj.getTotal();
+  output << obj.getTotal();
   return output; 
 }
 
@@ -24,4 +24,4 @@ T Accumulator<T>::getTotal() const {
 template <typename T>
 void Accumulator<T>::addValue(const T& value) {
   this->total += value;
-}        
+}
