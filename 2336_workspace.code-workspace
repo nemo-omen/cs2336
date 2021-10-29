@@ -61,7 +61,8 @@
 			"lab23main.C": "cpp",
 			"lab25main.C": "cpp",
 			"lab26main.C": "cpp",
-			"lab27main.C": "cpp"
+			"lab27main.C": "cpp",
+			"tuple": "c"
 		},
 		"files.watcherExclude": {
 			"**/target": true
