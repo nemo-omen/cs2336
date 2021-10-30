@@ -39,6 +39,10 @@
 		{
 			"name": "mement-sveltekit",
 			"path": "../../dev/projects/mement-sveltekit"
+		},
+		{
+			"name": "SSH FS - csunix",
+			"uri": "ssh://csunix/home/jcaldwell2"
 		}
 	],
 	"settings": {
@@ -62,7 +66,8 @@
 			"lab25main.C": "cpp",
 			"lab26main.C": "cpp",
 			"lab27main.C": "cpp",
-			"tuple": "c"
+			"tuple": "c",
+			"lab28main.C": "cpp"
 		},
 		"files.watcherExclude": {
 			"**/target": true
