@@ -43,6 +43,9 @@
 		{
 			"name": "SSH FS - csunix",
 			"uri": "ssh://csunix/home/jcaldwell2"
+		},
+		{
+			"path": "../../dev/projects/trainingmontage-astro"
 		}
 	],
 	"settings": {
