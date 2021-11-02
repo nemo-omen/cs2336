@@ -2,6 +2,25 @@
 // CS 2336
 // Lab 31
 
+
+// f = number of filenames
+// l = length of filename
+// c = number of columns
+// r = number of rows
+
+// total window width = 60 char
+// <---------60--------->
+// <---60 - l -->|<--L-->
+//        |          |
+//        V          V
+// c = (60-l)/(l+2) + 1
+// -----------------------
+// 
+// r = f/c (may need rounding up if f%c!=0)
+// c = f/r (may need rounding up if f%r!=0)
+
+// rightmost col has width of l
+
 // recieve a list of files
 // sort them
 // 
