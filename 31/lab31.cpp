@@ -35,8 +35,8 @@ int main(int argc, const char** argv) {
 
   vector<string>::pointer ptr, end;
 
-  // outer loop controlled by r (numbe of rows)
-  // inner loop controlled by c (numbe of columns)
+  // outer loop controlled by r (number of rows)
+  // inner loop controlled by c (number of columns)
   for(ptr = filenames.data(), end = ptr + filenames.size(); 
       ptr < end;
       ++ptr) {
