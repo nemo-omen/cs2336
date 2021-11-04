@@ -40,38 +40,53 @@ void printLine(int length, ostream& os);
 int longestFileName(const vector<string>& fileNames);
 
 int main(int argc, const char** argv) {
-  cout << ID;
-  printLine(60, cout);
-
   vector<string> filenames;
   string inputLine;
+  int windowWidth = 60;
+  uint L = 0;
 
+  cout << ID;
+  printLine(windowWidth, cout);
+
+  // read lines from input
+  // and compare along the way to assign
+  // highest length to L
   while(getline(cin, inputLine)) {
     filenames.emplace_back(inputLine);
+    if (L < inputLine.length()) L = inputLine.length();
   }
 
   sort(filenames.begin(), filenames.end());
+  // number of fileNames
+  int F = filenames.size();
 
-  int windowWidth = 60;
-  int F = filenames.size();                     // number of fileNames
-  int L = longestFileName(filenames);           // length of filename
-  int C = ((windowWidth - L) / (L + 2)) + 1;          // initial number of columns
-  cout << "C before recalc: " << C << '\n';
-  int R = F % C == 0 ? (F / C) : (F / C) + 1;   // number of rows
-  C = F % R == 0 ? (F / R) : (F / R) + 1;       // final number of columns
+  // initial number of columns
+  int C = ((windowWidth - L) / (L + 2)) + 1;
+  
+  // number of rows
+  int R = F % C == 0 ? (F / C) : (F / C) + 1;
+  
+  // final number of columns
+  C = F % R == 0 ? (F / R) : (F / R) + 1;
 
   vector<string>::pointer ptr, end;
 
-  cout << "F: " << F << endl;
-  cout << "L: " << L << endl;
-  cout << "R: " << R << endl;
-  cout << "C: " << C << endl;
+  // cout << "F: " << F << endl;
+  // cout << "L: " << L << endl;
+  // cout << "R: " << R << endl;
+  // cout << "C: " << C << endl;
 
   // outer loop controlled by r (number of rows)
   // inner loop controlled by c (number of columns)
-  for(ptr = filenames.data(), end = ptr + filenames.size(); ptr < end; ++ptr) {
-        // cout << left << setw(60) << *ptr << endl;
-      }
+  for(int i = 0; i < R; i++) {
+    for(ptr = filenames.data() + (R * i), end = ptr + filenames.size(); ptr < end; ptr+=R) {
+      cout << left << setw(L + 1) << *ptr;
+    }
+    // for(int j = (C * i); j < filenames.size(); j++) {
+    //   cout << left << setw(L + 1) << filenames[j * R];
+    // }
+      cout << '\n';
+  }
     return 0;
 }
 

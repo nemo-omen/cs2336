@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cppRun": "echo 33 | ./lab30 > m33.out",
+    "cppRun": "echo 1000 | ./lab30 > m1000.out",
     "compile": "make clean && make",
     "cppBoot": "npm run compile && echo '--cpp output --\n' && npm run cppRun && echo '\n-- cpp end--'",
     "start": "npm run watch-cpp",

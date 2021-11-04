@@ -7,12 +7,10 @@
 using namespace std;
 
 void sieveOfEratosthenes(IntegerSet& prime) {
-  for (uint i = 2; i < prime.size(); i++) {
-    if((i * i) < prime.size()) {
-      if(prime.isMember(i)) {
-        for(uint j = i + i; j < prime.size(); j+= i) {
-          prime.reset(j);
-        }
+  for (uint i = 2; (i * i) < prime.size(); i++) {
+    if(prime.isMember(i)) {
+      for(uint j = i + i; j < prime.size(); j+= i) {
+        prime.reset(j);
       }
     }
   }
