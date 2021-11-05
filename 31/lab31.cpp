@@ -53,7 +53,7 @@ int main(int argc, const char** argv) {
   for(int i = 0; i < R; i++) {
     for(ptr = filenames.data() + i, end = ptr + (R * C); ptr < end; ptr+=R) {
 
-      // add 2 to formatted width to match provided output 
+      // add 2 to formatted width to match provided output
       // - TODO: double check formulae to make sure vals correct
       cout << left << setw(L + 2) << *ptr;
     }
