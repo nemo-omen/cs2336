@@ -319,3 +319,39 @@ INFO: Unsupported notification method: $/setTrace
 Nov 07, 2021 5:53:46 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
 INFO: Unsupported notification method: $/setTrace
 [0m2021.11.07 07:55:11 INFO  shutting down Metals[0m
+[0m2021.11.07 16:54:55 INFO  Started: Metals version 0.10.9 in workspace '/home/trainingmontage/school/2336' for client Visual Studio Code 1.62.0.[0m
+[0m2021.11.07 16:54:58 INFO  time: initialize in 2.56s[0m
+[0m2021.11.07 16:54:59 WARN  Build server is not auto-connectable.[0m
+[0m2021.11.07 16:54:59 WARN  no build tool detected in workspace '/home/trainingmontage/school/2336'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+Nov 07, 2021 4:55:22 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+[0m2021.11.07 16:55:26 INFO  shutting down Metals[0m
+[0m2021.11.07 16:55:45 INFO  Started: Metals version 0.10.9 in workspace '/home/trainingmontage/school/2336' for client Visual Studio Code 1.62.0.[0m
+[0m2021.11.07 16:55:47 INFO  time: initialize in 2.33s[0m
+[0m2021.11.07 16:55:48 WARN  Build server is not auto-connectable.[0m
+[0m2021.11.07 16:55:48 WARN  no build tool detected in workspace '/home/trainingmontage/school/2336'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+Nov 07, 2021 4:55:55 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+[0m2021.11.07 16:56:04 INFO  shutting down Metals[0m
+[0m2021.11.07 16:56:21 INFO  Started: Metals version 0.10.9 in workspace '/home/trainingmontage/school/2336' for client Visual Studio Code 1.62.0.[0m
+[0m2021.11.07 16:56:23 INFO  time: initialize in 2.02s[0m
+[0m2021.11.07 16:56:24 WARN  Build server is not auto-connectable.[0m
+[0m2021.11.07 16:56:24 WARN  no build tool detected in workspace '/home/trainingmontage/school/2336'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+Nov 07, 2021 5:41:59 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 07, 2021 5:42:01 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 07, 2021 5:42:01 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 07, 2021 5:42:02 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 07, 2021 5:42:02 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 07, 2021 5:42:04 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 07, 2021 5:42:04 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 07, 2021 5:42:04 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 07, 2021 5:42:05 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
