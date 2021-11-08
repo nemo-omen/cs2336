@@ -50,15 +50,15 @@ int main(int argc, const char** argv) {
 
   // outer loop controlled by r (number of rows)
   // inner loop controlled by c (number of columns)
+  // no need for pointers in outer loop, we're just counting
   for(int i = 0; i < R; i++) {
 
     // - start loop at `i` so there's no repitition of elements
-    // - end the loop at R + C so we get all elements for single row
+    // - end the loop at R * C so we get all elements for single row
     // - get every `R`th element for each pass
     for(ptr = filenames.data() + i, end = ptr + (R * C); ptr < end; ptr+=R) {
 
-      // add 2 to formatted width to match provided output
-      // - TODO: double check formulae to make sure vals correct
+      // add 2 to formatted width (L) to match provided output
       cout << left << setw(L + 2) << *ptr;
     }
       cout << '\n';
@@ -71,8 +71,8 @@ void printLine(int length, ostream& os) {
   os << setfill('-') << setw(length) << "-" << setfill(ch) << endl;
 }
 
-/* NOTES */
 
+/* NOTES */
 
 // F = number of filenames
 // L = length of filename
