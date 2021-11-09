@@ -1,10 +1,13 @@
 v.size() = 0
 v.capacity() = 0
+**1**miniVector erase(): vector empty
+**2**miniVector insert(): vector empty
 miniVector
 {
   [0] = 2002
 }
 
+**5**miniVector insert(): index range error  index 2  size = 1
 miniVector
 {
   [0] = 2002
@@ -18,7 +21,7 @@ miniVector
 miniVector
 {
   [0] = 0
-  [1] = 2305
+  [1] = 2002
   [2] = 2
   [3] = 2305
   [4] = 4
@@ -28,12 +31,14 @@ miniVector
   [8] = 8
   [9] = 2305
   [10] = 10
-  [11] = 10
+  [11] = 2305
 }
 
+**7**miniVector erase(): index range error  index 12  size = 12
+**8**miniVector insert(): index range error  index 13  size = 12
 miniVector
 {
-  [0] = 2305
+  [0] = 2002
   [1] = 2
   [2] = 2305
   [3] = 4
@@ -43,6 +48,7 @@ miniVector
   [7] = 8
   [8] = 2305
   [9] = 10
+  [10] = 2305
 }
 
 miniVector
@@ -56,6 +62,7 @@ miniVector
   [6] = 8
   [7] = 2305
   [8] = 10
+  [9] = 2305
 }
 
 miniVector
@@ -68,6 +75,7 @@ miniVector
   [5] = 8
   [6] = 2305
   [7] = 10
+  [8] = 2305
 }
 
 miniVector
@@ -79,6 +87,7 @@ miniVector
   [4] = 8
   [5] = 2305
   [6] = 10
+  [7] = 2305
 }
 
 miniVector
@@ -89,6 +98,7 @@ miniVector
   [3] = 8
   [4] = 2305
   [5] = 10
+  [6] = 2305
 }
 
 miniVector
@@ -98,6 +108,7 @@ miniVector
   [2] = 8
   [3] = 2305
   [4] = 10
+  [5] = 2305
 }
 
 miniVector
@@ -106,6 +117,7 @@ miniVector
   [1] = 8
   [2] = 2305
   [3] = 10
+  [4] = 2305
 }
 
 miniVector
@@ -113,17 +125,25 @@ miniVector
   [0] = 8
   [1] = 2305
   [2] = 10
+  [3] = 2305
 }
 
 miniVector
 {
   [0] = 2305
   [1] = 10
+  [2] = 2305
 }
 
 miniVector
 {
   [0] = 10
+  [1] = 2305
+}
+
+miniVector
+{
+  [0] = 2305
 }
 
 
