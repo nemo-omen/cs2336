@@ -49,6 +49,9 @@
 		},
 		{
 			"path": "../../dev/projects/tm-next"
+		},
+		{
+			"path": "../../dev/projects/jaillog-parse"
 		}
 	],
 	"settings": {
