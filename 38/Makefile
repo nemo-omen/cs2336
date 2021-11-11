@@ -2,8 +2,8 @@ CLASS = 2336
 BASE_DIR = /usr/local/$(CLASS)
 LINK_DIRS = -L$(BASE_DIR)/lib
 INCLUDE_DIRS = -I$(BASE_DIR)/include -I.
-LFLAGS = -static -fPIE -lm -lbits
-CFLAGS = -static -fPIE -g -Wall -std=c++11
+LFLAGS = -lm -lbits
+CFLAGS = -g -Wall -std=c++11
 
 .SECONDEXPANSION:
 CC = g++
@@ -35,7 +35,7 @@ targets1srcfile =
 $(targets1srcfile): $$@.o
 	$(CC) -o $@ $@.o $(LINK_DIRS) $(LFLAGS)
 
-targets2srcfiles =  lab35
+targets2srcfiles =  lab38
 
 $(targets2srcfiles): $$@main.o $$@.o
 	$(CC) -o $@ $@main.o $@.o $(LINK_DIRS) $(LFLAGS)
