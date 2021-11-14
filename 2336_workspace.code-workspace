@@ -52,6 +52,9 @@
 		},
 		{
 			"path": "../../dev/projects/tm-next"
+		},
+		{
+			"path": "../../dev/learning/js/StateMonger"
 		}
 	],
 	"settings": {

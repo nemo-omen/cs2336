@@ -363,3 +363,60 @@ Nov 10, 2021 6:16:52 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notif
 INFO: Unsupported notification method: $/setTrace
 Nov 10, 2021 8:07:52 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
 INFO: Unsupported notification method: $/setTrace
+[0m2021.11.12 06:35:21 INFO  shutting down Metals[0m
+[0m2021.11.12 06:35:59 INFO  Started: Metals version 0.10.9 in workspace '/home/trainingmontage/school/2336' for client Visual Studio Code 1.62.0.[0m
+[0m2021.11.12 06:36:02 INFO  time: initialize in 3.02s[0m
+[0m2021.11.12 06:36:02 WARN  Build server is not auto-connectable.[0m
+[0m2021.11.12 06:36:02 WARN  no build tool detected in workspace '/home/trainingmontage/school/2336'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+Nov 12, 2021 7:53:04 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 12, 2021 7:53:05 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 12, 2021 7:53:05 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 12, 2021 7:53:05 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 12, 2021 7:53:06 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 12, 2021 7:53:06 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 12, 2021 7:53:06 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 12, 2021 7:53:08 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 12, 2021 7:53:08 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 12, 2021 7:53:08 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 12, 2021 6:28:45 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 12, 2021 6:28:47 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+[0m2021.11.13 16:35:19 INFO  shutting down Metals[0m
+[0m2021.11.13 16:37:45 INFO  Started: Metals version 0.10.9 in workspace '/home/trainingmontage/school/2336' for client Visual Studio Code 1.62.2.[0m
+[0m2021.11.13 16:37:49 INFO  time: initialize in 3.95s[0m
+[0m2021.11.13 16:37:50 WARN  Build server is not auto-connectable.[0m
+[0m2021.11.13 16:37:50 WARN  no build tool detected in workspace '/home/trainingmontage/school/2336'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.11.13 16:39:46 INFO  shutting down Metals[0m
+[0m2021.11.13 16:41:53 INFO  Started: Metals version 0.10.9 in workspace '/home/trainingmontage/school/2336' for client Visual Studio Code 1.62.2.[0m
+[0m2021.11.13 16:41:55 INFO  time: initialize in 1.88s[0m
+[0m2021.11.13 16:41:55 WARN  Build server is not auto-connectable.[0m
+[0m2021.11.13 16:41:55 WARN  no build tool detected in workspace '/home/trainingmontage/school/2336'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+Nov 13, 2021 4:42:01 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 13, 2021 4:42:03 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 13, 2021 4:42:03 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 13, 2021 4:42:05 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 13, 2021 4:42:05 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 13, 2021 4:42:07 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 13, 2021 4:42:07 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 13, 2021 4:42:08 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 13, 2021 4:42:08 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
