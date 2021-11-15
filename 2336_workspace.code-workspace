@@ -88,7 +88,8 @@
 			"lab33main.C": "cpp",
 			"lab34main.C": "cpp",
 			"lab35main.C": "cpp",
-			"lab36main.C": "cpp"
+			"lab36main.C": "cpp",
+			"lab37main.C": "cpp"
 		},
 		"files.watcherExclude": {
 			"**/target": true
