@@ -3,11 +3,19 @@
 // Lab 37
 
 #include <lab37.h>
+#include<vector>
+#include<algorithm>
 
 // Overloaded output operator - displays puzzle row-by-row to output
 // stream out.  The elements in a row should be separated by one
 // blank space.
 ostream& operator<<(ostream& out, const Sudoku& puzzle) {
+  for(int i = 0; i < puzzle.gameBoard.rows(); ++i) {
+    for(int j = 0; j < puzzle.gameBoard.cols(); ++j) {
+      out << puzzle.gameBoard[i][j] << ' ';
+    }
+    out << '\n';
+  }
   return out;
 }
 
@@ -23,9 +31,11 @@ istream& operator>>(istream& in, Sudoku& puzzle) {
   int i, j, num;
 
   for(i = 0; i < puzzle.gameBoard.rows(); ++i) {
-    in >> num;
-    for(j = 0; j < puzzle.gameBoard.cols(); ++j) {
-
+    in >> num; // read 4-digit int for each row
+    for(j = puzzle.gameBoard.cols() - 1; j >= 0 ; --j) {
+      int rightmostDigit = num % 10;
+      puzzle.gameBoard[i][j] = rightmostDigit;
+      num = num / 10;
     }
   }
 
@@ -41,5 +51,17 @@ Sudoku::Sudoku() {
 // Returns true if puzzle represents a valid sudoku game board as
 // described in the lab handout
 bool Sudoku::isValid() const {
+
+  for(int i = 0; i < gameBoard.rows(); ++i) {
+    int decimal = 1;
+    int total = 0;
+
+    for(int j = gameBoard.cols(); j >= 0 ; --j) {
+      total += gameBoard[i][j] * decimal;
+      decimal *= 10;
+    }
+
+    cout << "total: " << total / 10 << endl;
+  }
   return true;
 }
