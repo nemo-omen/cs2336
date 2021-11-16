@@ -94,6 +94,6 @@
 		"files.watcherExclude": {
 			"**/target": true
 		},
-		"liveServer.settings.multiRootWorkspaceName": "remark-code-figure-test"
+		"liveServer.settings.multiRootWorkspaceName": "StateMonger"
 	}
 }

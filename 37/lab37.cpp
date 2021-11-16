@@ -52,16 +52,21 @@ Sudoku::Sudoku() {
 // described in the lab handout
 bool Sudoku::isValid() const {
 
-  for(int i = 0; i < gameBoard.rows(); ++i) {
-    int decimal = 1;
-    int total = 0;
-
-    for(int j = gameBoard.cols(); j >= 0 ; --j) {
-      total += gameBoard[i][j] * decimal;
-      decimal *= 10;
+  for(int i = 0; i < gameBoard.rows(); i++) {
+    uint unique[gameBoard.rows()];
+    for(int j = 0; j < gameBoard.cols(); j++) {
+      // if any of the values in a row are
+      // smaller than 1 or larger than 4, the row
+      // is out of range and the board is not valid
+      if(gameBoard[i][j] <=0 || gameBoard[i][j] > (int)gameBoard.rows()) {
+        return false;
+      }
+      
     }
-
-    cout << "total: " << total / 10 << endl;
   }
   return true;
+  
+}
+
+bool isInRange(matrix<uint> board) {
 }
