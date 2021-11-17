@@ -12,13 +12,18 @@ ostream& operator<<(ostream& os, const vector<uint>& v);
 
 void bucketSort(vector<uint>& v, uint numDigits) {
   vector<vector<uint>> buckets (10);
+  int multiplier = 1;
 
-  for(int k = 1; k <= numDigits; k++) {
+  for(int i = 0; i < (int)v.size(); i++) {
+    int current = v[i];
+    int targetDigit;
+    while(current != 0) {
+      targetDigit = current % 10;
+      buckets[targetDigit].push_back(v[i]);
+    }
   }
-
-  cout << "buckets: " << '\n' << "[";
   for(int i = 0; i < (int)buckets.size(); i++) {
     cout << buckets[i];
   }
-  cout << "]\n";
+  // cout << v;
 }
