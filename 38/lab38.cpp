@@ -8,7 +8,7 @@
 
 using namespace std;
 
-vector<uint> merge(vector<uint> a, vector<uint> b);
+vector<uint> merge(vector<uint> &a, vector<uint> &b);
 
 ostream& operator<<(ostream& os, const vector<uint>& v);
 
@@ -33,16 +33,17 @@ void bucketSort(vector<uint>& v, uint numDigits) {
 
   for(int i = 0; i < buckets.size(); i++) {
     if(buckets[i].size() > 0) {
-      merge(v, buckets[i]);
+      
     }
   }
-  cout << "after: " << v;
+
+  cout << "buckets after: " << buckets;
 }
 
 vector<uint> merge(vector<uint> &a, vector<uint> &b) {
-  int size = a.size() > b.size() ? a.size() : b.size();
+  // int size = a.size() > b.size() ? a.size() : b.size();
   vector<uint> result(a.size() + b.size());
-  int i = 0, j = 0, k = 0;
+  vector<unsigned int>::size_type i = 0, j = 0, k = 0;
 
   while(i < a.size() && j < b.size()) {
     if(a[i] < b[i]) {
