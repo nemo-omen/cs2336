@@ -1,0 +1,10 @@
+Random Data:
+Bucket Sort: 308ms
+Sort didn't work correctly
+
+Ascending Data:
+Bucket Sort: 315ms
+
+Descending Data:
+Bucket Sort: 310ms
+

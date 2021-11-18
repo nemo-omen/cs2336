@@ -2,44 +2,44 @@
 // CS 2336
 // Lab 38
 
+// NOTE: This works when running the code on vectors as large as 1000. 
+// I wrote the output to a file and double-checked, but for some reason
+// sorting random numbers against `lab38main.test.cpp` returns that
+// sort didn't work on random numbers. Any input on what I've done
+// wrong would be greatly appreciated. Thanks!
+
 #include <vector>
 #include <iostream>
 #include <cmath>
 
 using namespace std;
 
-vector<uint> merge(vector<uint> &a, vector<uint> &b);
-
 ostream& operator<<(ostream& os, const vector<uint>& v);
 
 void bucketSort(vector<uint>& v, uint numDigits) {
   vector<vector<uint>> buckets (10);
-  vector<uint> out;
-  int multiplier = 10;
-  // int digitCount = numDigits;
-  cout << "before: " << v;
-  vector<uint>::size_type i, j;
+  vector<uint>::size_type i, j, k, l;
 
-  for(i = 0; i < v.size(); i++) {
-    int current = v[i];
-    int targetDigit;
+  // start by looping over each digit
+  for(k = 0; k < numDigits; k++) {
+    int long long mult = pow(10, k + 1);
+    int long long div = pow(10, k);
 
-    targetDigit = current % multiplier;
-    buckets[targetDigit].push_back(v[i]);
-    --numDigits;
-  }
+    for(i = 0; i < v.size(); i++) {
+      int long long digit = (v[i] % mult) / div;
+      buckets[digit].push_back(v[i]);
+    }
 
-  for(i = 0; i < buckets.size(); i++) {
-    cout << "bucket: " << buckets[i];
-  }
+    v.clear();
 
-  for(i = 0; i < buckets.size(); i++) {
-    if(buckets[i].size() > 0) {
-      for(j = 0; j < buckets[i].size(); j++) {
-        out.push_back(buckets[i][j]);
+    for(j = 0; j < buckets.size(); j++) {
+      for(l = 0; l < buckets[j].size(); l++) {
+        v.push_back(buckets[j][l]);
+      }
+
+      if(buckets[j].size() > 0) {
+        buckets[j].clear();
       }
     }
   }
-
-  cout << "out: " << out;
-}
+  }
