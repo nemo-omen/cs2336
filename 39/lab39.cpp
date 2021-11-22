@@ -11,7 +11,6 @@
 
 using namespace std;
 
-
 bool isPalindrome(string s) {
   stack<char, vector<char>> a, b, c;
   bool isPalindrome = false;
