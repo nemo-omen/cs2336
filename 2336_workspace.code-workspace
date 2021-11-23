@@ -55,6 +55,9 @@
 		},
 		{
 			"path": "../../dev/learning/js/StateMonger"
+		},
+		{
+			"path": "../../dev/learning/data-structures"
 		}
 	],
 	"settings": {
