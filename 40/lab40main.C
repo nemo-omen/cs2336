@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool isNestedCorrectly(string);
+bool isNestedCorrectly(string str);
 
 int main()
 {
