@@ -11,8 +11,6 @@
 
 using namespace std;
 
-bool compareAndPop(char c, stack<char> s);
-
 bool isNestedCorrectly(string str) {
   stack<char> opening;
   char current;
@@ -55,13 +53,4 @@ bool isNestedCorrectly(string str) {
     }
   }
   return opening.empty();
-}
-
-bool compareAndPop(char c, stack<char> &s) {
-  char compare = s.top();
-  s.pop();
-  if(compare != c) {
-    return false;
-  }
-  return true;
 }
