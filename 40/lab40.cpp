@@ -27,28 +27,23 @@ bool isNestedCorrectly(string str) {
     if(current == ']' || current == '}' || current == ')') {
       if(opening.empty()) 
         return false;
-      
-      switch(current) {
-        case(')'):
-          compare = opening.top();
-          opening.pop();
-          if(compare == '{' || compare == '[') 
-            return false;
-          break;
 
-        case('}'):
-          compare = opening.top();
-          opening.pop();
-          if(compare == '(' || compare == '[') 
-            return false;
-          break;
+      compare = opening.top();
+      opening.pop();
 
-        case(']'):
-          compare = opening.top();
-          opening.pop();
-          if(compare == '{' || compare == '(') 
-            return false;
-          break;
+      if(current == ')') {
+        if(compare == '{' || compare == '[') 
+          return false;
+      }
+
+      if(current == '}') {
+        if(compare == '(' || compare == '[') 
+          return false;
+      }
+
+      if(current == ']') {
+        if(compare == '{' || compare == '(') 
+          return false;
       }
     }
   }
