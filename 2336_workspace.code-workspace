@@ -58,6 +58,9 @@
 		},
 		{
 			"path": "../../dev/learning/data-structures"
+		},
+		{
+			"path": "../../dev/projects/recipe-app"
 		}
 	],
 	"settings": {
