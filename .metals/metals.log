@@ -808,3 +808,5 @@ Dec 05, 2021 10:15:26 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint noti
 INFO: Unsupported notification method: $/setTrace
 Dec 05, 2021 10:15:27 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
 INFO: Unsupported notification method: $/setTrace
+Dec 05, 2021 10:15:52 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
